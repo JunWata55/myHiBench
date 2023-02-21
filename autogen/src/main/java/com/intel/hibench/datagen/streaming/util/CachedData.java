@@ -36,20 +36,22 @@ public class CachedData {
   private int next;
   private int totalRecords;
 
-  public static CachedData getInstance(String seedFile, long fileOffset, String dfsMaster) {
+  public static CachedData getInstance(String seedFile, long fileOffset, String dfsMaster, int totalRecords) {
     if(cachedData == null) {
       synchronized (CachedData.class) {
         if (cachedData == null) {
-          cachedData = new CachedData(seedFile, fileOffset, dfsMaster);
+          cachedData = new CachedData(seedFile, fileOffset, dfsMaster, totalRecords);
         }
       }
     }
     return cachedData;
   }
 
-  private CachedData(String seedFile, long fileOffset, String dfsMaster){
-    Configuration dfsConf = new Configuration();
-    dfsConf.set("fs.default.name", dfsMaster);
+  private CachedData(String seedFile, long fileOffset, String dfsMaster, int totalRecords){
+  // private CachedData(String seedFile, long fileOffset, String dfsMaster){
+      Configuration dfsConf = new Configuration();
+    // dfsConf.set("fs.default.name", dfsMaster); // hdfs://localhost:9000
+    dfsConf.set("fs.defaultFS", dfsMaster);
 
     // read records from seedFile and cache into "data"
     data = new ArrayList<String>();
@@ -57,7 +59,9 @@ public class CachedData {
     String line = null;
     try {
       while ((line = reader.readLine()) != null) {
-        data.add(line);
+        data.add(line); // the default num of dataset: 1000000
+        // sample
+        // 136     216.56.204.14,tqiokmubgzkkjzhgvczyuzaxploykpodcwsbhdkgwzcvllvvcbysokkocjnkijqozvb    gssvnxzwddecxwjsplexlghyu,1972-11-24,0.31341314,Mozilla/5.0 (Windows; U; Windows NT 5.2)A    ppleWebKit/525.13 (KHTML like Gecko) Version/3.1Safari/525.13,MNE,MNE-SR,bigamist's,9
       }
     } catch (IOException e) {
       System.err.println("Failed read records from Path: " + seedFile);
@@ -65,13 +69,22 @@ public class CachedData {
     }
 
     this.next = 0;
-    this.totalRecords = data.size();
+    // we can change the data set size by decrease the total records(must be less than the actual total records)
+    // this.totalRecords = data.size();
+    // this.totalRecords = 1000;
+    if (totalRecords < data.size()) {
+      this.totalRecords = totalRecords;
+    } else  {
+      this.totalRecords = data.size();
+    }
+    System.out.println("the number of the total records are " + this.totalRecords);
   }
 
   /**
    * Loop get record.
    * @return the record.
    */
+  // round robin I guess
   public String getRecord() {
     int current = next;
     next = (next + 1) % totalRecords;

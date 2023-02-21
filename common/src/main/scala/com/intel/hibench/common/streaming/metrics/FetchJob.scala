@@ -21,14 +21,18 @@ import java.util.concurrent.Callable
 
 import com.codahale.metrics.Histogram
 
-class FetchJob(zkConnect: String, topic: String, partition: Int,
+class FetchJob(bsConnect: String, topic: String, partition: Int,
     histogram: Histogram) extends Callable[FetchJobResult] {
+// class FetchJob(zkConnect: String, topic: String, partition: Int,
+//     histogram: Histogram) extends Callable[FetchJobResult] {
 
   override def call(): FetchJobResult = {
     val result = new FetchJobResult()
-    val consumer = new KafkaConsumer(zkConnect, topic, partition)
+    // val consumer = new KafkaConsumer(zkConnect, topic, partition)
+    val consumer = new KafkaUser(bsConnect, topic, partition)
     while (consumer.hasNext) {
-      val times = new String(consumer.next(), "UTF-8").split(":")
+      val times = consumer.next().split(":")
+      // val times = new String(consumer.next(), "UTF-8").split(":")
       val startTime = times(0).toLong
       val endTime = times(1).toLong
       // correct negative value which might be caused by difference of system time

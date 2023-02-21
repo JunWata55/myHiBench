@@ -17,9 +17,15 @@
 package com.intel.hibench.common.streaming.metrics
 
 import com.intel.hibench.common.streaming.Platform
-import kafka.admin.AdminUtils
-import kafka.utils.ZKStringSerializer
-import org.I0Itec.zkclient.ZkClient
+// import kafka.admin.AdminUtils
+// import kafka.utils.ZKStringSerializer
+// import org.I0Itec.zkclient.ZkClient
+
+import java.util.Arrays
+import java.util.Properties
+
+import org.apache.kafka.clients.admin.NewTopic
+import org.apache.kafka.clients.admin.{AdminClient, AdminClientConfig}
 
 object MetricsUtil {
 
@@ -33,18 +39,30 @@ object MetricsUtil {
     topic
   }
 
-  def createTopic(zkConnect: String, topic: String, partitions: Int): Unit = {
-    val zkClient = new ZkClient(zkConnect, 6000, 6000, ZKStringSerializer)
-    try {
-      AdminUtils.createTopic(zkClient, topic, partitions, 1)
-      while (!AdminUtils.topicExists(zkClient, topic)) {
-        Thread.sleep(100)
-      }
-    } catch {
-      case e: Exception =>
-        throw e
-    } finally {
-      zkClient.close()
-    }
+  // def createTopic(zkConnect: String, topic: String, partitions: Int): Unit = {
+  //   val zkClient = new ZkClient(zkConnect, 6000, 6000, ZKStringSerializer)
+  //   try {
+  //     AdminUtils.createTopic(zkClient, topic, partitions, 1)
+  //     while (!AdminUtils.topicExists(zkClient, topic)) {
+  //       Thread.sleep(100)
+  //     }
+  //   } catch {
+  //     case e: Exception =>
+  //       throw e
+  //   } finally {
+  //     zkClient.close()
+  //   }
+  // }
+
+  def createTopic(bsHost: String, topicName: String, partitions: Int): Unit = {
+    val config = new Properties()
+    config.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bsHost)
+
+    val localKafkaAdmin = AdminClient.create(config)
+    val replication = 1.toShort
+    val topic = new NewTopic(topicName, partitions, replication)
+    val topics = Arrays.asList(topic)
+
+    val topicStatus = localKafkaAdmin.createTopics(topics).values()
   }
 }

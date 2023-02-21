@@ -28,6 +28,7 @@ object MetricsReader extends App {
   val outputDir = args(2)
   val sampleNum = args(3).toInt
   val threadNum = args(4).toInt
-  val latencyCollector = new KafkaCollector(zookeeperConnect, topic, outputDir, sampleNum, threadNum)
+  // val latencyCollector = new KafkaCollector(zookeeperConnect, topic, outputDir, sampleNum, threadNum)
+  val latencyCollector = new KafkaCollector("localhost:9092", topic, outputDir, sampleNum, threadNum)
   latencyCollector.start()
 }

@@ -1,0 +1,6 @@
+Parsing conf: /home/junwata/HiBench/conf/flink.conf
+Parsing conf: /home/junwata/HiBench/conf/hadoop.conf
+Parsing conf: /home/junwata/HiBench/conf/hibench.conf
+Parsing conf: /home/junwata/HiBench/conf/workloads/streaming/identity.conf
+probe sleep jar: /usr/local/hadoop/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.10.1-tests.jar
+Please input the topic:

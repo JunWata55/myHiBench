@@ -17,6 +17,8 @@
 
 package com.intel.hibench.datagen.streaming.util;
 
+import avro.shaded.com.google.common.collect.Multimap;
+
 // A POJO class to contain necessary configuration
 public class DataGeneratorConfig {
   String testCase;
@@ -33,10 +35,14 @@ public class DataGeneratorConfig {
   int totalRounds;
   long totalRecords;
   boolean debugMode;
+  int dataSize; // new field value
 
   public DataGeneratorConfig(String testCase, String brokerList, String kMeansFile, long kMeansFileOffset,
       String userVisitsFile, long userVisitsFileOffset, String dfsMaster, int recordLength, int intervalSpan,
-      String topic, long recordsPerInterval, int totalRounds, long totalRecords, boolean debugMode) {
+      String topic, long recordsPerInterval, int totalRounds, long totalRecords, boolean debugMode, int dataSize) {
+  // public DataGeneratorConfig(String testCase, String brokerList, String kMeansFile, long kMeansFileOffset,
+  //     String userVisitsFile, long userVisitsFileOffset, String dfsMaster, int recordLength, int intervalSpan,
+  //     String topic, long recordsPerInterval, int totalRounds, long totalRecords, boolean debugMode) {
     this.testCase = testCase;
     this.brokerList = brokerList;
     this.kMeansFile = kMeansFile;
@@ -51,6 +57,7 @@ public class DataGeneratorConfig {
     this.totalRounds = totalRounds;
     this.totalRecords = totalRecords;
     this.debugMode = debugMode;
+    this.dataSize = dataSize; // new instance field value, the size of the data set the kafka producer uses
   }
 
   public String getTestCase() {
@@ -101,6 +108,11 @@ public class DataGeneratorConfig {
 
   public long getTotalRecords() {
     return totalRecords;
+  }
+
+  // new method
+  public int getDataSize() {
+    return dataSize;
   }
 
   public boolean getDebugMode() { return debugMode; }

@@ -21,33 +21,51 @@ import com.intel.hibench.flinkbench.util.KeyedTupleSchema;
 import com.intel.hibench.flinkbench.util.FlinkBenchConfig;
 
 import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.streaming.api.functions.source.SourceFunction;
-import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer08;
+// import org.apache.flink.streaming.api.functions.source.SourceFunction;
+// import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer08;
+import org.apache.flink.connector.kafka.source.KafkaSource;
+import org.apache.flink.connector.kafka.source.enumerator.initializer.OffsetsInitializer;
+// import org.apache.flink.api.common.serialization.SimpleStringSchema;
 
-import java.util.Properties;
+// import java.util.Properties;
 
 public abstract class StreamBase {
 
-  private SourceFunction<Tuple2<String, String>> dataStream;
+  // private SourceFunction<Tuple2<String, String>> dataStream;
+  private KafkaSource<Tuple2<String, String>> kafkaSource;
 
-  public SourceFunction<Tuple2<String, String>> getDataStream() {
-    return this.dataStream;
+  public KafkaSource<Tuple2<String, String>> getKafkaSource() {
+    return this.kafkaSource;
   }
+
+  // public void createDataStream(FlinkBenchConfig config) throws Exception {
+  //   Properties properties = new Properties();
+  //   properties.setProperty("zookeeper.connect", config.zkHost);
+  //   properties.setProperty("group.id", config.consumerGroup);
+  //   properties.setProperty("bootstrap.servers", config.brokerList);
+  //   properties.setProperty("auto.offset.reset", config.offsetReset);
+
+  //   this.dataStream = new FlinkKafkaConsumer08<Tuple2<String, String>>(
+  //       config.topic,
+  //       new KeyedTupleSchema(),
+  //       properties);
+  // }
 
   public void createDataStream(FlinkBenchConfig config) throws Exception {
-
-    Properties properties = new Properties();
-    properties.setProperty("zookeeper.connect", config.zkHost);
-    properties.setProperty("group.id", config.consumerGroup);
-    properties.setProperty("bootstrap.servers", config.brokerList);
-    properties.setProperty("auto.offset.reset", config.offsetReset);
-
-    this.dataStream = new FlinkKafkaConsumer08<Tuple2<String, String>>(
-        config.topic,
-        new KeyedTupleSchema(),
-        properties);
+    kafkaSource = KafkaSource.<Tuple2<String, String>>builder()
+      .setBootstrapServers(config.brokerList)
+			.setTopics(config.topic)
+			.setGroupId(config.consumerGroup)
+			// .setStartingOffsets(OffsetsInitializer.earliest())
+      .setStartingOffsets(OffsetsInitializer.latest())
+      .setDeserializer(new KeyedTupleSchema())
+			//.setValueOnlyDeserializer(new SimpleStringSchema())
+			//.setValueOnlyDeserializer(DeserializationSchema)
+			//.setDeserializer(KafkaRecordDeserializationSchema.valueOnly(StringDeserializer.class))
+			.build();
   }
 
-  public void processStream(FlinkBenchConfig config) throws Exception {
+  public void processStream(FlinkBenchConfig config, long interval, int method, int logic) throws Exception {
+  // public void processStream(FlinkBenchConfig config) throws Exception {
   }
 }

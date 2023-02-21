@@ -1,0 +1,39 @@
+Stopping taskexecutor daemon (pid: 2795387) on host junichi-server.
+No standalonesession daemon (pid: 2795086) is running anymore on junichi-server.
+Starting cluster.
+[INFO] 1 instance(s) of standalonesession are already running on junichi-server.
+Starting standalonesession daemon on host junichi-server.
+Starting taskexecutor daemon on host junichi-server.
+Stopping taskexecutor daemon (pid: 2806099) on host junichi-server.
+No standalonesession daemon (pid: 2805817) is running anymore on junichi-server.
+Starting cluster.
+[INFO] 1 instance(s) of standalonesession are already running on junichi-server.
+Starting standalonesession daemon on host junichi-server.
+Starting taskexecutor daemon on host junichi-server.
+Cancelling job a9424a3d870abd6ec1f312d779aca08f.
+Cancelled job a9424a3d870abd6ec1f312d779aca08f.
+the job ended
+Stopping taskexecutor daemon (pid: 2807964) on host junichi-server.
+No standalonesession daemon (pid: 2807682) is running anymore on junichi-server.
+Starting cluster.
+[INFO] 1 instance(s) of standalonesession are already running on junichi-server.
+Starting standalonesession daemon on host junichi-server.
+Starting taskexecutor daemon on host junichi-server.
+Stopping taskexecutor daemon (pid: 2811363) on host junichi-server.
+No standalonesession daemon (pid: 2811081) is running anymore on junichi-server.
+Starting cluster.
+[INFO] 1 instance(s) of standalonesession are already running on junichi-server.
+Starting standalonesession daemon on host junichi-server.
+Starting taskexecutor daemon on host junichi-server.
+Cancelling job 973c60890421aed1990b9dd0bde47d7c.
+Cancelled job 973c60890421aed1990b9dd0bde47d7c.
+the job ended
+interval: 10[s], measure: 10, crash num: 2
+starting flink job with the state size of 1000 and the method of Incremental
+pid is 2802919
+Job has been submitted with JobID a9424a3d870abd6ec1f312d779aca08f
+pid finished 2802919
+starting flink job with the state size of 20000 and the method of notIncremental
+pid is 2808966
+Job has been submitted with JobID 973c60890421aed1990b9dd0bde47d7c
+pid finished 2808966

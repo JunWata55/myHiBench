@@ -28,40 +28,70 @@ import java.util.Timer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+// when you want to change the rate
+// /home/junwata/HiBench/report/wordcount/prepare/conf/sparkbench/sparkbench.conf
+//    = StreamBenchConfig.DATAGEN_INTERVAL_SPAN
+//    = StreamBenchConfig.DATAGEN_RECORDS_PRE_INTERVAL
+//        -> timer.scheduleAtFixedRate()
+
+// when you want to change the data set size
+// 1.
+// -> com.intel.hibench.datagen.streaming.util.KafkaSender
+//    -> com.intel.hibench.datagen.streaming.util.CachedData
+//       -> change the field value, totalRecord (because of the round robin)
+
 public class DataGenerator {
 
   public static void main(String[] args) {
-    if (args.length < 5) {
-      System.err.println("args: <ConfigFile> <userVisitsFile> <userVisitsFileOffset> <kMeansFile> <kMeansFileOffset> need to be specified!");
+    if (args.length < 7) {
+      System.err.println("args: <ConfigFile> <userVisitsFile> <userVisitsFileOffset> <kMeansFile> <kMeansFileOffset> <dataSetSize> <rateChanger> need to be specified!");
       System.exit(1);
     }
 
     // initialize variable from configuration and input parameters.
-    ConfigLoader configLoader = new ConfigLoader(args[0]);
+    ConfigLoader configLoader = new ConfigLoader(args[0]); // /home/junwata/HiBench/report/wordcount/prepare/conf/sparkbench/sparkbench.conf
 
     String userVisitsFile = args[1];
-    long userVisitsFileOffset = Long.parseLong(args[2]);
+    long userVisitsFileOffset = Long.parseLong(args[2]); // hdfs://localhost:9000/HiBench/Streaming/Seed/uservisits
     String kMeansFile = args[3];
-    long kMeansFileOffset = Long.parseLong(args[4]);
+    long kMeansFileOffset = Long.parseLong(args[4]); // hdfs://localhost:9000/HiBench/Streaming/Kmeans/Samples
+
+    int dataSize = Integer.parseInt(args[5]);
+    int multiRecord = Integer.parseInt(args[6]);
+    int multiInterval = Integer.parseInt(args[7]);
+    System.out.println("The user defined parameters:");
+    System.out.println("\tData set size: " + dataSize);
+    System.out.println("\tNumber to multiple with the number of records per interval: " + multiRecord);
+    System.out.println("\tNumber to multiple with the length of interval: " + multiInterval);
 
     // load properties from config file
-    String testCase = configLoader.getProperty(StreamBenchConfig.TESTCASE).toLowerCase();
-    String topic = configLoader.getProperty(StreamBenchConfig.KAFKA_TOPIC);
-    String brokerList = configLoader.getProperty(StreamBenchConfig.KAFKA_BROKER_LIST);
-    int intervalSpan = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_INTERVAL_SPAN));
-    long recordsPerInterval = Long.parseLong(configLoader.getProperty(StreamBenchConfig.DATAGEN_RECORDS_PRE_INTERVAL));
-    long totalRecords = Long.parseLong(configLoader.getProperty(StreamBenchConfig.DATAGEN_TOTAL_RECORDS));
-    int totalRounds = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_TOTAL_ROUNDS));
-    int recordLength = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_RECORD_LENGTH));
-    String dfsMaster = configLoader.getProperty(HiBenchConfig.DFS_MASTER);
-    boolean debugMode = Boolean.getBoolean(configLoader.getProperty(StreamBenchConfig.DEBUG_MODE));
+    String testCase = configLoader.getProperty(StreamBenchConfig.TESTCASE).toLowerCase(); // wordcount
+    String topic = configLoader.getProperty(StreamBenchConfig.KAFKA_TOPIC); // wordcount
+    String brokerList = configLoader.getProperty(StreamBenchConfig.KAFKA_BROKER_LIST); // 127.0.0.1:9092
+    int intervalSpan = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_INTERVAL_SPAN)); // 50 ms
+    intervalSpan *= multiInterval;
+    long recordsPerInterval = Long.parseLong(configLoader.getProperty(StreamBenchConfig.DATAGEN_RECORDS_PRE_INTERVAL)); // 5
+    recordsPerInterval *= multiRecord;
+    long totalRecords = Long.parseLong(configLoader.getProperty(StreamBenchConfig.DATAGEN_TOTAL_RECORDS)); // -1
+    int totalRounds = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_TOTAL_ROUNDS)); // -1
+    int recordLength = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_RECORD_LENGTH)); // 200 bytes
+    String dfsMaster = configLoader.getProperty(HiBenchConfig.DFS_MASTER); // hdfs://localhost:9000
+    boolean debugMode = Boolean.getBoolean(configLoader.getProperty(StreamBenchConfig.DEBUG_MODE)); // false
+    System.out.println("The result of inputs:");
+    System.out.println("\tthe number of records per interval: " + recordsPerInterval);
+    System.out.println("\tthe length of interval: " + intervalSpan);
+
+
+    // DataGeneratorConfig dataGeneratorConf = new DataGeneratorConfig(testCase, brokerList, kMeansFile, kMeansFileOffset,
+    //     userVisitsFile, userVisitsFileOffset, dfsMaster, recordLength, intervalSpan, topic, recordsPerInterval,
+    //     totalRounds, totalRecords, debugMode);
 
     DataGeneratorConfig dataGeneratorConf = new DataGeneratorConfig(testCase, brokerList, kMeansFile, kMeansFileOffset,
         userVisitsFile, userVisitsFileOffset, dfsMaster, recordLength, intervalSpan, topic, recordsPerInterval,
-        totalRounds, totalRecords, debugMode);
+        totalRounds, totalRecords, debugMode, dataSize);
 
     // Create thread pool and submit producer task
-    int producerNumber = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_PRODUCER_NUMBER));
+    int producerNumber = Integer.parseInt(configLoader.getProperty(StreamBenchConfig.DATAGEN_PRODUCER_NUMBER)); // 1
     ExecutorService pool = Executors.newFixedThreadPool(producerNumber);
     for(int i = 0; i < producerNumber; i++) {
       pool.execute(new DataGeneratorJob(dataGeneratorConf));
@@ -110,11 +140,18 @@ public class DataGenerator {
       KafkaSender sender;
       if(conf.getTestCase().contains("statistics")) {
         sender = new KafkaSender(conf.getBrokerList(), conf.getkMeansFile(), conf.getkMeansFileOffset(),
-            conf.getDfsMaster(), conf.getRecordLength(), conf.getIntervalSpan());
+            conf.getDfsMaster(), conf.getRecordLength(), conf.getIntervalSpan(), conf.getDataSize());
       } else {
         sender = new KafkaSender(conf.getBrokerList(), conf.getUserVisitsFile(), conf.getUserVisitsFileOffset(),
-            conf.getDfsMaster(), conf.getRecordLength(), conf.getIntervalSpan());
+            conf.getDfsMaster(), conf.getRecordLength(), conf.getIntervalSpan(), conf.getDataSize());
       }
+      // if(conf.getTestCase().contains("statistics")) {
+      //   sender = new KafkaSender(conf.getBrokerList(), conf.getkMeansFile(), conf.getkMeansFileOffset(),
+      //       conf.getDfsMaster(), conf.getRecordLength(), conf.getIntervalSpan());
+      // } else {
+      //   sender = new KafkaSender(conf.getBrokerList(), conf.getUserVisitsFile(), conf.getUserVisitsFileOffset(),
+      //       conf.getDfsMaster(), conf.getRecordLength(), conf.getIntervalSpan());
+      // }
 
       // Schedule timer task
       Timer timer = new Timer();

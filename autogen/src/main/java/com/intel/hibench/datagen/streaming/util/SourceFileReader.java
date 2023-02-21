@@ -32,7 +32,8 @@ public class SourceFileReader {
       Path pt = new Path(path);
       FileSystem fs = FileSystem.get(dfsConf);
       InputStreamReader isr;
-      if (fs.isDirectory(pt)) {
+      if (fs.getFileStatus(pt).isDirectory()) {
+      // if (fs.isDirectory(pt)) {
         //give path is an directory
         isr = new InputStreamReader(openMultipleParts(fs, pt, offset));
       } else {

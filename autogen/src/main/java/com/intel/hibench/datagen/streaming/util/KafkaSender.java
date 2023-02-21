@@ -29,7 +29,8 @@ import org.apache.kafka.common.serialization.StringSerializer;
  */
 public class KafkaSender {
 
-  KafkaProducer kafkaProducer;
+  // KafkaProducer kafkaProducer;
+  KafkaProducer<byte[], byte[]> kafkaProducer;
   CachedData cachedData;
   int recordLength;
   int intervalSpan;
@@ -38,7 +39,8 @@ public class KafkaSender {
 
   // Constructor
   public KafkaSender(String brokerList, String seedFile,
-      long fileOffset, String dfsMaster, int recordLength, int intervalSpan) {
+    // long fileOffset, String dfsMaster, int recordLength, int intervalSpan) {
+    long fileOffset, String dfsMaster, int recordLength, int intervalSpan, int dataSize) {
 
     // Details of KafkaProducerConfig could be find from:
     //   http://kafka.apache.org/documentation.html#producerconfigs
@@ -50,9 +52,13 @@ public class KafkaSender {
         "org.apache.kafka.common.serialization.ByteArraySerializer");
     props.setProperty(ProducerConfig.ACKS_CONFIG, "1");
     props.getProperty(ProducerConfig.CLIENT_ID_CONFIG, "DataGenerator");
-    this.kafkaProducer = new KafkaProducer(props);
+    // this.kafkaProducer = new KafkaProducer(props);
+    this.kafkaProducer = new KafkaProducer<byte[], byte[]>(props);
 
-    this.cachedData = CachedData.getInstance(seedFile, fileOffset, dfsMaster);
+    // get the data that will be used from hdfs
+    // this.cachedData = CachedData.getInstance(seedFile, fileOffset, dfsMaster);
+    System.out.println("before the cache");
+    this.cachedData = CachedData.getInstance(seedFile, fileOffset, dfsMaster, dataSize);
     this.recordLength = recordLength;
     this.intervalSpan = intervalSpan;
   }
@@ -82,7 +88,8 @@ public class KafkaSender {
       byte[] keyByte = serializer.serialize(topic, currentTime);
       byte[] valueByte = fillArray(keyByte, serializer.serialize(topic, line));
 
-      ProducerRecord serializedRecord = new ProducerRecord(topic, keyByte, valueByte);
+      // ProducerRecord serializedRecord = new ProducerRecord(topic, keyByte, valueByte);
+      ProducerRecord<byte[], byte[]> serializedRecord = new ProducerRecord<>(topic, keyByte, valueByte);
       kafkaProducer.send(serializedRecord, callback);
 
       //update counter

@@ -30,7 +30,7 @@ JVM_OPTS="-Xmx1024M -server -XX:+UseCompressedOops -XX:+UseParNewGC -XX:+UseConc
 
 printFullLog
 
-CMD="$JAVA_BIN $JVM_OPTS com.intel.hibench.datagen.streaming.DataGenerator $SPARKBENCH_PROPERTIES_FILES $DATA_FILE1 0 $DATA_FILE2 0"
+CMD="$JAVA_BIN $JVM_OPTS com.intel.hibench.datagen.streaming.DataGenerator $SPARKBENCH_PROPERTIES_FILES $DATA_FILE1 0 $DATA_FILE2 0 $1 $2 $3"
 echo -e "${BGreen}Sending streaming data to kafka, periodically: ${Green}$CMD${Color_Off}"
 execute_withlog $CMD
 

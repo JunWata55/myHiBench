@@ -19,25 +19,34 @@ package com.intel.hibench.flinkbench.microbench;
 
 import com.intel.hibench.flinkbench.datasource.StreamBase;
 import com.intel.hibench.flinkbench.util.FlinkBenchConfig;
-
-import org.apache.flink.api.common.functions.MapFunction;
-import org.apache.flink.api.java.tuple.Tuple2;
-import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 
 import com.intel.hibench.common.streaming.metrics.KafkaReporter;
 
 public class Identity extends StreamBase {
 
   @Override
-  public void processStream(final FlinkBenchConfig config) throws Exception {
+  public void processStream(final FlinkBenchConfig config, long interval, int method, int logic) throws Exception {
 
     final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
     env.setBufferTimeout(config.bufferTimeout);
 
     createDataStream(config);
-    DataStream<Tuple2<String, String>> dataStream = env.addSource(getDataStream());
+    DataStream<Tuple2<String, String>> dataStream = env.fromSource(getKafkaSource(), WatermarkStrategy.noWatermarks(), "Kafka Source");
+    // DataStream<Tuple2<String, String>> dataStream = env.addSource(getDataStream());
+    dataStream.map(new MapFunction<Tuple2<String, String>, Tuple2<String, String>>() {
+      @Override
+      public Tuple2<String, String> map(Tuple2<String, String> value) throws Exception {
+        System.out.println(value.f0 + " a big big partition " + value.f1);
+        return value;
+      }
+    });
 
+    
     dataStream.map(new MapFunction<Tuple2<String, String>, Tuple2<String, String>>() {
 
       @Override

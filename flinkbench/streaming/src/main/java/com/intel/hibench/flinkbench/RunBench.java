@@ -55,23 +55,29 @@ public class RunBench {
     int intervalSpan = Integer.parseInt(cl.getProperty(StreamBenchConfig.DATAGEN_INTERVAL_SPAN));
     conf.reportTopic = MetricsUtil.getTopic(Platform.FLINK, conf.testCase, producerNum, recordsPerInterval, intervalSpan);
     int reportTopicPartitions = Integer.parseInt(cl.getProperty(StreamBenchConfig.KAFKA_TOPIC_PARTITIONS));
-    MetricsUtil.createTopic(conf.zkHost, conf.reportTopic, reportTopicPartitions);
+    //MetricsUtil.createTopic(conf.zkHost, conf.reportTopic, reportTopicPartitions);
+    System.out.println("start metricsutil");
+    MetricsUtil.createTopic(conf.brokerList, conf.reportTopic, reportTopicPartitions);
+    System.out.println("finish metricsutil");
 
     // Main testcase logic
     String testCase = conf.testCase;
 
+
     if (testCase.equals("wordcount")) {
       WordCount wordCount = new WordCount();
-      wordCount.processStream(conf);
+      // wordCount.processStream(conf);
+      wordCount.processStream(conf, Long.parseLong(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
     } else if (testCase.equals("identity")) {
       Identity identity = new Identity();
-      identity.processStream(conf);
-    } else if (testCase.equals("repartition")) {
-      Repartition repartition = new Repartition();
-      repartition.processStream(conf);
-    } else if (testCase.equals("fixwindow")) {
-      FixedWindow window = new FixedWindow();
-      window.processStream(conf);
+      identity.processStream(conf, 1000, 0, 0);
     }
+    // } else if (testCase.equals("repartition")) {
+    //   Repartition repartition = new Repartition();
+    //   repartition.processStream(conf);
+    // } else if (testCase.equals("fixwindow")) {
+    //   FixedWindow window = new FixedWindow();
+    //   window.processStream(conf);
+    // }
   }
 }

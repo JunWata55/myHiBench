@@ -11,8 +11,10 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-    <maven.compiler.source>1.6</maven.compiler.source>
-    <maven.compiler.target>1.6</maven.compiler.target>
+    <!-- <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target> -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <scala.version>2.11.8</scala.version>
     <scala.binary.version>2.10</scala.binary.version>
@@ -40,6 +42,30 @@
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>31.0.1-jre</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>2.10.1</version>
     </dependency>
   </dependencies>
 
@@ -143,11 +169,11 @@
     <profile>
       <id>defaultbench</id>
       <modules>
-        <module>sparkbench</module>
+        <!-- <module>sparkbench</module> -->
         <module>flinkbench</module>
-        <module>gearpumpbench</module>
+        <!-- <module>gearpumpbench</module> -->
         <module>hadoopbench</module>
-        <module>stormbench</module>
+        <!-- <module>stormbench</module> -->
       </modules>
       <activation>
         <property>

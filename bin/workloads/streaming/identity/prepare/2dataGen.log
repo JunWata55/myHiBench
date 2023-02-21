@@ -1,0 +1,19 @@
+patching args=
+start StreamingIdentityPrepare bench
+Sending streaming data to kafka, periodically: /usr/bin/java -Xmx1024M -server -XX:+UseCompressedOops -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC -Djava.awt.headless=true -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dkafka.logs.dir=bin/../logs -cp /home/junwata/HiBench/autogen/target/autogen-8.0-SNAPSHOT-jar-with-dependencies.jar com.intel.hibench.datagen.streaming.DataGenerator /home/junwata/HiBench/report/identity/prepare/conf/sparkbench/sparkbench.conf hdfs://localhost:9000/HiBench/Streaming/Seed/uservisits 0 hdfs://localhost:9000/HiBench/Streaming/Kmeans/Samples 0
+============ StreamBench Data Generator ============
+ Interval Span       : 50 ms
+ Record Per Interval : 5
+ Record Length       : 200 bytes
+ Producer Number     : 1
+ Total Records        : -1 [Infinity]
+ Total Rounds         : -1 [Infinity]
+ Kafka Topic          : identity
+====================================================
+Estimated Speed : 
+    100 records/second
+    0.02 Mb/second
+====================================================
+opening all parts in path: hdfs://localhost:9000/HiBench/Streaming/Seed/uservisits, from offset: 0
+pool-1-thread-1 - starting generate data ... 
+finish StreamingIdentityPrepare bench

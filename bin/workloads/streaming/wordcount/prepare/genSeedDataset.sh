@@ -27,6 +27,16 @@ show_bannar start
 
 PAGES=120000
 USERVISITS=1000000
+# USERVISITS=2000000
+
+echo $STREAMING_DATA_DIR
+echo $STREAMING_DATA1_NAME
+echo $NUM_MAPS
+echo $NUM_REDS
+echo $PAGES
+echo $USERVISITS
+echo $DATATOOLS
+# exit
 
 rmr_hdfs $STREAMING_DATA_DIR || true
 echo -e "${On_Blue}Pages:${PAGES}, USERVISITS:${USERVISITS}${Color_Off}"

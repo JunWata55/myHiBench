@@ -25,7 +25,8 @@ show_bannar start
 
 START_TIME=`timestamp`
 printFullLog
-run_flink_job -c com.intel.hibench.flinkbench.RunBench
+# run_flink_job -c com.intel.hibench.flinkbench.RunBench
+run_flink_job -c com.intel.hibench.flinkbench.RunBench $1 $2 $3
 END_TIME=`timestamp`
 
 gen_report ${START_TIME} ${END_TIME} 0

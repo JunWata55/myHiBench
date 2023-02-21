@@ -1,0 +1,944 @@
+2023-01-06 05:24:37,135 INFO  org.apache.flink.runtime.dispatcher.StandaloneDispatcher     [] - Received JobGraph submission 'wordcount' (a9424a3d870abd6ec1f312d779aca08f).
+2023-01-06 05:24:37,135 INFO  org.apache.flink.runtime.dispatcher.StandaloneDispatcher     [] - Submitting job 'wordcount' (a9424a3d870abd6ec1f312d779aca08f).
+2023-01-06 05:24:37,136 INFO  org.apache.flink.runtime.rpc.akka.AkkaRpcService             [] - Starting RPC endpoint for org.apache.flink.runtime.jobmaster.JobMaster at akka://flink/user/rpc/jobmanager_21 .
+2023-01-06 05:24:37,136 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Initializing job 'wordcount' (a9424a3d870abd6ec1f312d779aca08f).
+2023-01-06 05:24:37,136 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using restart back off time strategy FixedDelayRestartBackoffTimeStrategy(maxNumberRestartAttempts=2147483647, backoffTimeMS=1000) for wordcount (a9424a3d870abd6ec1f312d779aca08f).
+2023-01-06 05:24:37,136 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Running initialization on master for job wordcount (a9424a3d870abd6ec1f312d779aca08f).
+2023-01-06 05:24:37,136 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Successfully ran initialization on master in 0 ms.
+2023-01-06 05:24:37,145 INFO  org.apache.flink.runtime.scheduler.adapter.DefaultExecutionTopology [] - Built 1 new pipelined regions in 0 ms, total 1 pipelined regions currently.
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using job/cluster config to configure application-defined state backend: EmbeddedRocksDBStateBackend{, localRocksDbDirectories=null, enableIncrementalCheckpointing=TRUE, numberOfTransferThreads=-1, writeBatchSize=-1}
+2023-01-06 05:24:37,146 INFO  org.apache.flink.contrib.streaming.state.EmbeddedRocksDBStateBackend [] - Using predefined options: DEFAULT.
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using application-defined state backend: EmbeddedRocksDBStateBackend{, localRocksDbDirectories=null, enableIncrementalCheckpointing=TRUE, numberOfTransferThreads=4, writeBatchSize=2097152}
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.state.StateBackendLoader            [] - State backend loader loads the state backend as EmbeddedRocksDBStateBackend
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using job/cluster config to configure application-defined checkpoint storage: org.apache.flink.runtime.state.storage.FileSystemCheckpointStorage@d8b2e68
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No checkpoint found during restore.
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Using failover strategy org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy@32d60acd for wordcount (a9424a3d870abd6ec1f312d779aca08f).
+2023-01-06 05:24:37,146 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Starting execution of job 'wordcount' (a9424a3d870abd6ec1f312d779aca08f) under job master id 00000000000000000000000000000000.
+2023-01-06 05:24:37,147 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Starting split enumerator for source Source: Kafka Source.
+2023-01-06 05:24:37,150 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Starting scheduling with scheduling strategy [org.apache.flink.runtime.scheduler.strategy.PipelinedRegionSchedulingStrategy]
+2023-01-06 05:24:37,150 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state CREATED to RUNNING.
+2023-01-06 05:24:37,151 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (76e1cdd2e94d7344835375bd7330ddb4) switched from CREATED to SCHEDULED.
+2023-01-06 05:24:37,151 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (86d150f74b1566278981ab4cd373fabd) switched from CREATED to SCHEDULED.
+2023-01-06 05:24:37,151 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Connecting to ResourceManager akka.tcp://flink@localhost:6123/user/rpc/resourcemanager_*(00000000000000000000000000000000)
+2023-01-06 05:24:37,151 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - Resolved ResourceManager address, beginning registration
+2023-01-06 05:24:37,151 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registering job manager 00000000000000000000000000000000@akka.tcp://flink@localhost:6123/user/rpc/jobmanager_21 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:37,151 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registered job manager 00000000000000000000000000000000@akka.tcp://flink@localhost:6123/user/rpc/jobmanager_21 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:37,152 INFO  org.apache.flink.runtime.jobmaster.JobMaster                 [] - JobManager successfully registered at ResourceManager, leader id: 00000000000000000000000000000000.
+2023-01-06 05:24:37,152 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:24:37,159 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (76e1cdd2e94d7344835375bd7330ddb4) switched from SCHEDULED to DEPLOYING.
+2023-01-06 05:24:37,159 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Kafka Source -> Map (1/1) (attempt #0) with attempt id 76e1cdd2e94d7344835375bd7330ddb4 and vertex id a8a4444ed12a4ca1c5290450ed282314_0 to localhost:37493-c2e22e @ localhost (dataPort=42785) with allocation id 8a708d0de963639d06eb317a6c844a31
+2023-01-06 05:24:37,159 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (86d150f74b1566278981ab4cd373fabd) switched from SCHEDULED to DEPLOYING.
+2023-01-06 05:24:37,159 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Map -> Sink: Print to Std. Out (1/1) (attempt #0) with attempt id 86d150f74b1566278981ab4cd373fabd and vertex id e25ec7fe94796af6334ee89417d58350_0 to localhost:37493-c2e22e @ localhost (dataPort=42785) with allocation id 8a708d0de963639d06eb317a6c844a31
+2023-01-06 05:24:37,159 INFO  org.apache.kafka.clients.admin.AdminClientConfig             [] - AdminClientConfig values: 
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = wordcount-enumerator-admin-client
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.mechanism = GSSAPI
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'key.deserializer' was supplied but isn't a known config.
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'value.deserializer' was supplied but isn't a known config.
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'enable.auto.commit' was supplied but isn't a known config.
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'group.id' was supplied but isn't a known config.
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'client.id.prefix' was supplied but isn't a known config.
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'partition.discovery.interval.ms' was supplied but isn't a known config.
+2023-01-06 05:24:37,191 WARN  org.apache.kafka.clients.admin.AdminClientConfig             [] - The configuration 'auto.offset.reset' was supplied but isn't a known config.
+2023-01-06 05:24:37,192 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka version: 2.8.1
+2023-01-06 05:24:37,192 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka commitId: 839b886f9b732b15
+2023-01-06 05:24:37,192 INFO  org.apache.kafka.common.utils.AppInfoParser                  [] - Kafka startTimeMs: 1672982677191
+2023-01-06 05:24:37,193 INFO  org.apache.flink.connector.kafka.source.enumerator.KafkaSourceEnumerator [] - Starting the KafkaSourceEnumerator for consumer group wordcount without periodic partition discovery.
+2023-01-06 05:24:37,338 INFO  org.apache.flink.connector.kafka.source.enumerator.KafkaSourceEnumerator [] - Discovered new partitions: [wordcount-0]
+2023-01-06 05:24:37,415 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (86d150f74b1566278981ab4cd373fabd) switched from DEPLOYING to INITIALIZING.
+2023-01-06 05:24:37,422 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (76e1cdd2e94d7344835375bd7330ddb4) switched from DEPLOYING to INITIALIZING.
+2023-01-06 05:24:37,434 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Kafka Source registering reader for parallel task 0 @ localhost
+2023-01-06 05:24:37,434 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (76e1cdd2e94d7344835375bd7330ddb4) switched from INITIALIZING to RUNNING.
+2023-01-06 05:24:37,434 INFO  org.apache.flink.connector.kafka.source.enumerator.KafkaSourceEnumerator [] - Assigning splits to readers {0=[[Partition: wordcount-0, StartingOffset: -1, StoppingOffset: -9223372036854775808]]}
+2023-01-06 05:24:37,736 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (86d150f74b1566278981ab4cd373fabd) switched from INITIALIZING to RUNNING.
+2023-01-06 05:24:38,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 1 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982678913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:39,129 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 1 for job a9424a3d870abd6ec1f312d779aca08f (51955 bytes, checkpointDuration=214 ms, finalizationTime=2 ms).
+2023-01-06 05:24:39,129 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 1 as completed for source Source: Kafka Source.
+2023-01-06 05:24:40,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 2 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982680913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:41,143 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 2 for job a9424a3d870abd6ec1f312d779aca08f (107979 bytes, checkpointDuration=230 ms, finalizationTime=0 ms).
+2023-01-06 05:24:41,143 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 2 as completed for source Source: Kafka Source.
+2023-01-06 05:24:42,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 3 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982682913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:43,143 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 3 for job a9424a3d870abd6ec1f312d779aca08f (164153 bytes, checkpointDuration=230 ms, finalizationTime=0 ms).
+2023-01-06 05:24:43,143 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 3 as completed for source Source: Kafka Source.
+2023-01-06 05:24:44,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 4 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982684913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:45,221 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 4 for job a9424a3d870abd6ec1f312d779aca08f (220329 bytes, checkpointDuration=308 ms, finalizationTime=0 ms).
+2023-01-06 05:24:45,221 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 4 as completed for source Source: Kafka Source.
+2023-01-06 05:24:46,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 5 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982686913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:47,165 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 5 for job a9424a3d870abd6ec1f312d779aca08f (267037 bytes, checkpointDuration=252 ms, finalizationTime=0 ms).
+2023-01-06 05:24:47,165 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 5 as completed for source Source: Kafka Source.
+2023-01-06 05:24:48,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 6 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982688913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:49,159 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 6 for job a9424a3d870abd6ec1f312d779aca08f (323752 bytes, checkpointDuration=246 ms, finalizationTime=0 ms).
+2023-01-06 05:24:49,159 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 6 as completed for source Source: Kafka Source.
+2023-01-06 05:24:50,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 7 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982690913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:51,128 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 7 for job a9424a3d870abd6ec1f312d779aca08f (379914 bytes, checkpointDuration=215 ms, finalizationTime=0 ms).
+2023-01-06 05:24:51,128 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 7 as completed for source Source: Kafka Source.
+2023-01-06 05:24:52,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 8 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982692913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:53,248 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 8 for job a9424a3d870abd6ec1f312d779aca08f (428421 bytes, checkpointDuration=334 ms, finalizationTime=1 ms).
+2023-01-06 05:24:53,248 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 8 as completed for source Source: Kafka Source.
+2023-01-06 05:24:54,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 9 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982694913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:55,176 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 9 for job a9424a3d870abd6ec1f312d779aca08f (480961 bytes, checkpointDuration=263 ms, finalizationTime=0 ms).
+2023-01-06 05:24:55,176 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 9 as completed for source Source: Kafka Source.
+2023-01-06 05:24:56,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 10 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982696913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:57,170 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 10 for job a9424a3d870abd6ec1f312d779aca08f (537201 bytes, checkpointDuration=257 ms, finalizationTime=0 ms).
+2023-01-06 05:24:57,170 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 10 as completed for source Source: Kafka Source.
+2023-01-06 05:24:58,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 11 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982698913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:24:59,239 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 11 for job a9424a3d870abd6ec1f312d779aca08f (593403 bytes, checkpointDuration=326 ms, finalizationTime=0 ms).
+2023-01-06 05:24:59,239 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 11 as completed for source Source: Kafka Source.
+2023-01-06 05:25:00,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 12 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982700913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:01,209 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 12 for job a9424a3d870abd6ec1f312d779aca08f (649583 bytes, checkpointDuration=296 ms, finalizationTime=0 ms).
+2023-01-06 05:25:01,209 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 12 as completed for source Source: Kafka Source.
+2023-01-06 05:25:02,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 13 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982702913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:03,119 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 13 for job a9424a3d870abd6ec1f312d779aca08f (694402 bytes, checkpointDuration=206 ms, finalizationTime=0 ms).
+2023-01-06 05:25:03,120 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 13 as completed for source Source: Kafka Source.
+2023-01-06 05:25:04,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 14 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982704913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:05,189 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 14 for job a9424a3d870abd6ec1f312d779aca08f (750555 bytes, checkpointDuration=276 ms, finalizationTime=0 ms).
+2023-01-06 05:25:05,189 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 14 as completed for source Source: Kafka Source.
+2023-01-06 05:25:06,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 15 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982706913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:07,158 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 15 for job a9424a3d870abd6ec1f312d779aca08f (806767 bytes, checkpointDuration=245 ms, finalizationTime=0 ms).
+2023-01-06 05:25:07,158 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 15 as completed for source Source: Kafka Source.
+2023-01-06 05:25:08,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 16 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982708913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:09,219 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 16 for job a9424a3d870abd6ec1f312d779aca08f (855371 bytes, checkpointDuration=306 ms, finalizationTime=0 ms).
+2023-01-06 05:25:09,219 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 16 as completed for source Source: Kafka Source.
+2023-01-06 05:25:10,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 17 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982710913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:11,140 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 17 for job a9424a3d870abd6ec1f312d779aca08f (908261 bytes, checkpointDuration=227 ms, finalizationTime=0 ms).
+2023-01-06 05:25:11,140 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 17 as completed for source Source: Kafka Source.
+2023-01-06 05:25:12,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 18 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982712913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:13,142 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 18 for job a9424a3d870abd6ec1f312d779aca08f (964462 bytes, checkpointDuration=228 ms, finalizationTime=0 ms).
+2023-01-06 05:25:13,142 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 18 as completed for source Source: Kafka Source.
+2023-01-06 05:25:14,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 19 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982714913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:15,177 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 19 for job a9424a3d870abd6ec1f312d779aca08f (1020576 bytes, checkpointDuration=264 ms, finalizationTime=0 ms).
+2023-01-06 05:25:15,177 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 19 as completed for source Source: Kafka Source.
+2023-01-06 05:25:16,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 20 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982716913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:17,239 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 20 for job a9424a3d870abd6ec1f312d779aca08f (1068872 bytes, checkpointDuration=326 ms, finalizationTime=0 ms).
+2023-01-06 05:25:17,239 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 20 as completed for source Source: Kafka Source.
+2023-01-06 05:25:18,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 21 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982718913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:19,149 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 21 for job a9424a3d870abd6ec1f312d779aca08f (1114239 bytes, checkpointDuration=236 ms, finalizationTime=0 ms).
+2023-01-06 05:25:19,149 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 21 as completed for source Source: Kafka Source.
+2023-01-06 05:25:20,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 22 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982720913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:21,126 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 22 for job a9424a3d870abd6ec1f312d779aca08f (1170436 bytes, checkpointDuration=213 ms, finalizationTime=0 ms).
+2023-01-06 05:25:21,126 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 22 as completed for source Source: Kafka Source.
+2023-01-06 05:25:22,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 23 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982722913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:23,145 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 23 for job a9424a3d870abd6ec1f312d779aca08f (1226589 bytes, checkpointDuration=232 ms, finalizationTime=0 ms).
+2023-01-06 05:25:23,145 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 23 as completed for source Source: Kafka Source.
+2023-01-06 05:25:24,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 24 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982724913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:25,247 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 24 for job a9424a3d870abd6ec1f312d779aca08f (1282790 bytes, checkpointDuration=334 ms, finalizationTime=0 ms).
+2023-01-06 05:25:25,248 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 24 as completed for source Source: Kafka Source.
+2023-01-06 05:25:26,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 25 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982726913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:27,169 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 25 for job a9424a3d870abd6ec1f312d779aca08f (1325727 bytes, checkpointDuration=256 ms, finalizationTime=0 ms).
+2023-01-06 05:25:27,169 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 25 as completed for source Source: Kafka Source.
+2023-01-06 05:25:28,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 26 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982728913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:29,145 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 26 for job a9424a3d870abd6ec1f312d779aca08f (1381932 bytes, checkpointDuration=232 ms, finalizationTime=0 ms).
+2023-01-06 05:25:29,145 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 26 as completed for source Source: Kafka Source.
+2023-01-06 05:25:30,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 27 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982730913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:31,282 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 27 for job a9424a3d870abd6ec1f312d779aca08f (1438113 bytes, checkpointDuration=368 ms, finalizationTime=1 ms).
+2023-01-06 05:25:31,282 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 27 as completed for source Source: Kafka Source.
+2023-01-06 05:25:32,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 28 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982732913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:33,193 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 28 for job a9424a3d870abd6ec1f312d779aca08f (1494197 bytes, checkpointDuration=280 ms, finalizationTime=0 ms).
+2023-01-06 05:25:33,193 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 28 as completed for source Source: Kafka Source.
+2023-01-06 05:25:34,913 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 29 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982734913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:35,180 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 29 for job a9424a3d870abd6ec1f312d779aca08f (1537184 bytes, checkpointDuration=267 ms, finalizationTime=0 ms).
+2023-01-06 05:25:35,180 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 29 as completed for source Source: Kafka Source.
+2023-01-06 05:25:36,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 30 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982736913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:37,173 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 30 for job a9424a3d870abd6ec1f312d779aca08f (1593378 bytes, checkpointDuration=260 ms, finalizationTime=0 ms).
+2023-01-06 05:25:37,173 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 30 as completed for source Source: Kafka Source.
+2023-01-06 05:25:38,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 31 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982738913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:39,167 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 31 for job a9424a3d870abd6ec1f312d779aca08f (1649581 bytes, checkpointDuration=254 ms, finalizationTime=0 ms).
+2023-01-06 05:25:39,167 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 31 as completed for source Source: Kafka Source.
+2023-01-06 05:25:40,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 32 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982740913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:41,245 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 32 for job a9424a3d870abd6ec1f312d779aca08f (1697472 bytes, checkpointDuration=332 ms, finalizationTime=0 ms).
+2023-01-06 05:25:41,245 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 32 as completed for source Source: Kafka Source.
+2023-01-06 05:25:42,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 33 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982742913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:43,166 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 33 for job a9424a3d870abd6ec1f312d779aca08f (1748470 bytes, checkpointDuration=253 ms, finalizationTime=0 ms).
+2023-01-06 05:25:43,166 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 33 as completed for source Source: Kafka Source.
+2023-01-06 05:25:44,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 34 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982744913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:45,192 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 34 for job a9424a3d870abd6ec1f312d779aca08f (1804726 bytes, checkpointDuration=279 ms, finalizationTime=0 ms).
+2023-01-06 05:25:45,192 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 34 as completed for source Source: Kafka Source.
+2023-01-06 05:25:46,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 35 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982746913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:47,152 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 35 for job a9424a3d870abd6ec1f312d779aca08f (1860906 bytes, checkpointDuration=239 ms, finalizationTime=0 ms).
+2023-01-06 05:25:47,153 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 35 as completed for source Source: Kafka Source.
+2023-01-06 05:25:48,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 36 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982748913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:49,238 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 36 for job a9424a3d870abd6ec1f312d779aca08f (1908909 bytes, checkpointDuration=325 ms, finalizationTime=0 ms).
+2023-01-06 05:25:49,238 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 36 as completed for source Source: Kafka Source.
+2023-01-06 05:25:50,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 37 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982750913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:51,168 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 37 for job a9424a3d870abd6ec1f312d779aca08f (1959822 bytes, checkpointDuration=255 ms, finalizationTime=0 ms).
+2023-01-06 05:25:51,168 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 37 as completed for source Source: Kafka Source.
+2023-01-06 05:25:52,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 38 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982752913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:53,128 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 38 for job a9424a3d870abd6ec1f312d779aca08f (2016022 bytes, checkpointDuration=214 ms, finalizationTime=1 ms).
+2023-01-06 05:25:53,128 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 38 as completed for source Source: Kafka Source.
+2023-01-06 05:25:54,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 39 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982754913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:55,165 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 39 for job a9424a3d870abd6ec1f312d779aca08f (2072195 bytes, checkpointDuration=251 ms, finalizationTime=1 ms).
+2023-01-06 05:25:55,165 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 39 as completed for source Source: Kafka Source.
+2023-01-06 05:25:56,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 40 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982756913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:57,283 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 40 for job a9424a3d870abd6ec1f312d779aca08f (2120342 bytes, checkpointDuration=370 ms, finalizationTime=0 ms).
+2023-01-06 05:25:57,283 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 40 as completed for source Source: Kafka Source.
+2023-01-06 05:25:58,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 41 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982758913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:25:59,137 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 41 for job a9424a3d870abd6ec1f312d779aca08f (2171334 bytes, checkpointDuration=224 ms, finalizationTime=0 ms).
+2023-01-06 05:25:59,137 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 41 as completed for source Source: Kafka Source.
+2023-01-06 05:26:00,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 42 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982760913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:01,156 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 42 for job a9424a3d870abd6ec1f312d779aca08f (2227518 bytes, checkpointDuration=243 ms, finalizationTime=0 ms).
+2023-01-06 05:26:01,156 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 42 as completed for source Source: Kafka Source.
+2023-01-06 05:26:02,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 43 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982762913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:03,325 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 43 for job a9424a3d870abd6ec1f312d779aca08f (2283684 bytes, checkpointDuration=412 ms, finalizationTime=0 ms).
+2023-01-06 05:26:03,325 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 43 as completed for source Source: Kafka Source.
+2023-01-06 05:26:04,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 44 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982764913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:05,211 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 44 for job a9424a3d870abd6ec1f312d779aca08f (2331592 bytes, checkpointDuration=298 ms, finalizationTime=0 ms).
+2023-01-06 05:26:05,211 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 44 as completed for source Source: Kafka Source.
+2023-01-06 05:26:06,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 45 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982766913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:07,324 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 45 for job a9424a3d870abd6ec1f312d779aca08f (2382635 bytes, checkpointDuration=411 ms, finalizationTime=0 ms).
+2023-01-06 05:26:07,324 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 45 as completed for source Source: Kafka Source.
+2023-01-06 05:26:08,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 46 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982768913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:09,158 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 46 for job a9424a3d870abd6ec1f312d779aca08f (2438856 bytes, checkpointDuration=245 ms, finalizationTime=0 ms).
+2023-01-06 05:26:09,158 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 46 as completed for source Source: Kafka Source.
+2023-01-06 05:26:10,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 47 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982770913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:11,144 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 47 for job a9424a3d870abd6ec1f312d779aca08f (2495023 bytes, checkpointDuration=231 ms, finalizationTime=0 ms).
+2023-01-06 05:26:11,144 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 47 as completed for source Source: Kafka Source.
+2023-01-06 05:26:12,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 48 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982772913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:13,197 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 48 for job a9424a3d870abd6ec1f312d779aca08f (2543511 bytes, checkpointDuration=284 ms, finalizationTime=0 ms).
+2023-01-06 05:26:13,197 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 48 as completed for source Source: Kafka Source.
+2023-01-06 05:26:14,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 49 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982774913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:15,176 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 49 for job a9424a3d870abd6ec1f312d779aca08f (2594535 bytes, checkpointDuration=263 ms, finalizationTime=0 ms).
+2023-01-06 05:26:15,177 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 49 as completed for source Source: Kafka Source.
+2023-01-06 05:26:16,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 50 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982776913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:17,161 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 50 for job a9424a3d870abd6ec1f312d779aca08f (2650713 bytes, checkpointDuration=248 ms, finalizationTime=0 ms).
+2023-01-06 05:26:17,161 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 50 as completed for source Source: Kafka Source.
+2023-01-06 05:26:18,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 51 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982778913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:19,146 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 51 for job a9424a3d870abd6ec1f312d779aca08f (2674412 bytes, checkpointDuration=233 ms, finalizationTime=0 ms).
+2023-01-06 05:26:19,146 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 51 as completed for source Source: Kafka Source.
+2023-01-06 05:26:20,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 52 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982780913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:21,107 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 52 for job a9424a3d870abd6ec1f312d779aca08f (2679637 bytes, checkpointDuration=194 ms, finalizationTime=0 ms).
+2023-01-06 05:26:21,107 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 52 as completed for source Source: Kafka Source.
+2023-01-06 05:26:22,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 53 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982782913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:23,076 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 53 for job a9424a3d870abd6ec1f312d779aca08f (2671823 bytes, checkpointDuration=162 ms, finalizationTime=1 ms).
+2023-01-06 05:26:23,076 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 53 as completed for source Source: Kafka Source.
+2023-01-06 05:26:24,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 54 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982784913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:25,119 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 54 for job a9424a3d870abd6ec1f312d779aca08f (2677027 bytes, checkpointDuration=206 ms, finalizationTime=0 ms).
+2023-01-06 05:26:25,119 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 54 as completed for source Source: Kafka Source.
+2023-01-06 05:26:26,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 55 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982786913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:27,087 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 55 for job a9424a3d870abd6ec1f312d779aca08f (2682281 bytes, checkpointDuration=174 ms, finalizationTime=0 ms).
+2023-01-06 05:26:27,087 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 55 as completed for source Source: Kafka Source.
+2023-01-06 05:26:28,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 56 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982788913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:29,106 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 56 for job a9424a3d870abd6ec1f312d779aca08f (2687490 bytes, checkpointDuration=193 ms, finalizationTime=0 ms).
+2023-01-06 05:26:29,106 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 56 as completed for source Source: Kafka Source.
+2023-01-06 05:26:30,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 57 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982790913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:31,076 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 57 for job a9424a3d870abd6ec1f312d779aca08f (2673577 bytes, checkpointDuration=163 ms, finalizationTime=0 ms).
+2023-01-06 05:26:31,076 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 57 as completed for source Source: Kafka Source.
+2023-01-06 05:26:32,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 58 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982792913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:33,336 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 58 for job a9424a3d870abd6ec1f312d779aca08f (2678756 bytes, checkpointDuration=423 ms, finalizationTime=0 ms).
+2023-01-06 05:26:33,336 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 58 as completed for source Source: Kafka Source.
+2023-01-06 05:26:34,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 59 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982794913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:35,079 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 59 for job a9424a3d870abd6ec1f312d779aca08f (2683975 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:26:35,080 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 59 as completed for source Source: Kafka Source.
+2023-01-06 05:26:36,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 60 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982796913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:37,116 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 60 for job a9424a3d870abd6ec1f312d779aca08f (2689243 bytes, checkpointDuration=203 ms, finalizationTime=0 ms).
+2023-01-06 05:26:37,116 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 60 as completed for source Source: Kafka Source.
+2023-01-06 05:26:38,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 61 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982798913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:39,084 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 61 for job a9424a3d870abd6ec1f312d779aca08f (2674867 bytes, checkpointDuration=171 ms, finalizationTime=0 ms).
+2023-01-06 05:26:39,084 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 61 as completed for source Source: Kafka Source.
+2023-01-06 05:26:40,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 62 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982800913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:41,078 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 62 for job a9424a3d870abd6ec1f312d779aca08f (2680079 bytes, checkpointDuration=165 ms, finalizationTime=0 ms).
+2023-01-06 05:26:41,078 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 62 as completed for source Source: Kafka Source.
+2023-01-06 05:26:42,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 63 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982802913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:43,080 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 63 for job a9424a3d870abd6ec1f312d779aca08f (2685291 bytes, checkpointDuration=166 ms, finalizationTime=1 ms).
+2023-01-06 05:26:43,080 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 63 as completed for source Source: Kafka Source.
+2023-01-06 05:26:44,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 64 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982804913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:45,140 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 64 for job a9424a3d870abd6ec1f312d779aca08f (2690484 bytes, checkpointDuration=227 ms, finalizationTime=0 ms).
+2023-01-06 05:26:45,140 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 64 as completed for source Source: Kafka Source.
+2023-01-06 05:26:46,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 65 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982806913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:47,084 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 65 for job a9424a3d870abd6ec1f312d779aca08f (2675911 bytes, checkpointDuration=171 ms, finalizationTime=0 ms).
+2023-01-06 05:26:47,084 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 65 as completed for source Source: Kafka Source.
+2023-01-06 05:26:48,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 66 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982808913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:49,077 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 66 for job a9424a3d870abd6ec1f312d779aca08f (2681146 bytes, checkpointDuration=164 ms, finalizationTime=0 ms).
+2023-01-06 05:26:49,077 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 66 as completed for source Source: Kafka Source.
+2023-01-06 05:26:50,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 67 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982810913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:51,079 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 67 for job a9424a3d870abd6ec1f312d779aca08f (2686379 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:26:51,079 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 67 as completed for source Source: Kafka Source.
+2023-01-06 05:26:52,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 68 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982812913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:53,115 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 68 for job a9424a3d870abd6ec1f312d779aca08f (2691599 bytes, checkpointDuration=202 ms, finalizationTime=0 ms).
+2023-01-06 05:26:53,115 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 68 as completed for source Source: Kafka Source.
+2023-01-06 05:26:54,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 69 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982814913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:55,093 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 69 for job a9424a3d870abd6ec1f312d779aca08f (2676557 bytes, checkpointDuration=180 ms, finalizationTime=0 ms).
+2023-01-06 05:26:55,093 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 69 as completed for source Source: Kafka Source.
+2023-01-06 05:26:56,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 70 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982816913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:57,086 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 70 for job a9424a3d870abd6ec1f312d779aca08f (2681784 bytes, checkpointDuration=173 ms, finalizationTime=0 ms).
+2023-01-06 05:26:57,086 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 70 as completed for source Source: Kafka Source.
+2023-01-06 05:26:58,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 71 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982818913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:26:59,054 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 71 for job a9424a3d870abd6ec1f312d779aca08f (2687000 bytes, checkpointDuration=141 ms, finalizationTime=0 ms).
+2023-01-06 05:26:59,055 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 71 as completed for source Source: Kafka Source.
+2023-01-06 05:27:00,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 72 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982820913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:01,108 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 72 for job a9424a3d870abd6ec1f312d779aca08f (2692220 bytes, checkpointDuration=195 ms, finalizationTime=0 ms).
+2023-01-06 05:27:01,108 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 72 as completed for source Source: Kafka Source.
+2023-01-06 05:27:02,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 73 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982822913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:03,085 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 73 for job a9424a3d870abd6ec1f312d779aca08f (2677325 bytes, checkpointDuration=172 ms, finalizationTime=0 ms).
+2023-01-06 05:27:03,085 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 73 as completed for source Source: Kafka Source.
+2023-01-06 05:27:04,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 74 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982824913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:05,078 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 74 for job a9424a3d870abd6ec1f312d779aca08f (2682582 bytes, checkpointDuration=165 ms, finalizationTime=0 ms).
+2023-01-06 05:27:05,078 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 74 as completed for source Source: Kafka Source.
+2023-01-06 05:27:06,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 75 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982826913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:07,088 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 75 for job a9424a3d870abd6ec1f312d779aca08f (2687763 bytes, checkpointDuration=175 ms, finalizationTime=0 ms).
+2023-01-06 05:27:07,088 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 75 as completed for source Source: Kafka Source.
+2023-01-06 05:27:08,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 76 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982828913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:09,098 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 76 for job a9424a3d870abd6ec1f312d779aca08f (2692997 bytes, checkpointDuration=185 ms, finalizationTime=0 ms).
+2023-01-06 05:27:09,099 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 76 as completed for source Source: Kafka Source.
+2023-01-06 05:27:10,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 77 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982830913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:11,076 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 77 for job a9424a3d870abd6ec1f312d779aca08f (2677860 bytes, checkpointDuration=163 ms, finalizationTime=0 ms).
+2023-01-06 05:27:11,077 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 77 as completed for source Source: Kafka Source.
+2023-01-06 05:27:12,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 78 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982832913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:13,078 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 78 for job a9424a3d870abd6ec1f312d779aca08f (2683033 bytes, checkpointDuration=165 ms, finalizationTime=0 ms).
+2023-01-06 05:27:13,078 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 78 as completed for source Source: Kafka Source.
+2023-01-06 05:27:14,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 79 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982834913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:15,214 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 79 for job a9424a3d870abd6ec1f312d779aca08f (2688247 bytes, checkpointDuration=301 ms, finalizationTime=0 ms).
+2023-01-06 05:27:15,214 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 79 as completed for source Source: Kafka Source.
+2023-01-06 05:27:16,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 80 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982836913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:17,108 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 80 for job a9424a3d870abd6ec1f312d779aca08f (2693430 bytes, checkpointDuration=195 ms, finalizationTime=0 ms).
+2023-01-06 05:27:17,108 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 80 as completed for source Source: Kafka Source.
+2023-01-06 05:27:18,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 81 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982838913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:19,085 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 81 for job a9424a3d870abd6ec1f312d779aca08f (2678359 bytes, checkpointDuration=172 ms, finalizationTime=0 ms).
+2023-01-06 05:27:19,085 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 81 as completed for source Source: Kafka Source.
+2023-01-06 05:27:20,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 82 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982840913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:21,237 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 82 for job a9424a3d870abd6ec1f312d779aca08f (2683570 bytes, checkpointDuration=324 ms, finalizationTime=0 ms).
+2023-01-06 05:27:21,237 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 82 as completed for source Source: Kafka Source.
+2023-01-06 05:27:22,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 83 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982842913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:23,081 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 83 for job a9424a3d870abd6ec1f312d779aca08f (2688785 bytes, checkpointDuration=167 ms, finalizationTime=1 ms).
+2023-01-06 05:27:23,081 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 83 as completed for source Source: Kafka Source.
+2023-01-06 05:27:24,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 84 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982844913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:25,133 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 84 for job a9424a3d870abd6ec1f312d779aca08f (2694016 bytes, checkpointDuration=220 ms, finalizationTime=0 ms).
+2023-01-06 05:27:25,133 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 84 as completed for source Source: Kafka Source.
+2023-01-06 05:27:26,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 85 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982846913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:27,069 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 85 for job a9424a3d870abd6ec1f312d779aca08f (2678765 bytes, checkpointDuration=156 ms, finalizationTime=0 ms).
+2023-01-06 05:27:27,069 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 85 as completed for source Source: Kafka Source.
+2023-01-06 05:27:28,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 86 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982848913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:29,078 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 86 for job a9424a3d870abd6ec1f312d779aca08f (2683995 bytes, checkpointDuration=165 ms, finalizationTime=0 ms).
+2023-01-06 05:27:29,079 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 86 as completed for source Source: Kafka Source.
+2023-01-06 05:27:30,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 87 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982850913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:31,081 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 87 for job a9424a3d870abd6ec1f312d779aca08f (2689206 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:27:31,081 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 87 as completed for source Source: Kafka Source.
+2023-01-06 05:27:32,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 88 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982852913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:33,099 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 88 for job a9424a3d870abd6ec1f312d779aca08f (2694396 bytes, checkpointDuration=186 ms, finalizationTime=0 ms).
+2023-01-06 05:27:33,099 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 88 as completed for source Source: Kafka Source.
+2023-01-06 05:27:34,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 89 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982854913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:35,085 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 89 for job a9424a3d870abd6ec1f312d779aca08f (2678985 bytes, checkpointDuration=172 ms, finalizationTime=0 ms).
+2023-01-06 05:27:35,085 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 89 as completed for source Source: Kafka Source.
+2023-01-06 05:27:36,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 90 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982856913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:37,087 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 90 for job a9424a3d870abd6ec1f312d779aca08f (2684231 bytes, checkpointDuration=174 ms, finalizationTime=0 ms).
+2023-01-06 05:27:37,087 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 90 as completed for source Source: Kafka Source.
+2023-01-06 05:27:38,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 91 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982858913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:39,063 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 91 for job a9424a3d870abd6ec1f312d779aca08f (2689448 bytes, checkpointDuration=150 ms, finalizationTime=0 ms).
+2023-01-06 05:27:39,063 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 91 as completed for source Source: Kafka Source.
+2023-01-06 05:27:40,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 92 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982860913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:41,103 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 92 for job a9424a3d870abd6ec1f312d779aca08f (2694680 bytes, checkpointDuration=190 ms, finalizationTime=0 ms).
+2023-01-06 05:27:41,103 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 92 as completed for source Source: Kafka Source.
+2023-01-06 05:27:42,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 93 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982862913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:43,080 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 93 for job a9424a3d870abd6ec1f312d779aca08f (2679069 bytes, checkpointDuration=167 ms, finalizationTime=0 ms).
+2023-01-06 05:27:43,080 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 93 as completed for source Source: Kafka Source.
+2023-01-06 05:27:44,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 94 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982864913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:45,123 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 94 for job a9424a3d870abd6ec1f312d779aca08f (2684290 bytes, checkpointDuration=210 ms, finalizationTime=0 ms).
+2023-01-06 05:27:45,123 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 94 as completed for source Source: Kafka Source.
+2023-01-06 05:27:46,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 95 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982866913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:47,135 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 95 for job a9424a3d870abd6ec1f312d779aca08f (2689455 bytes, checkpointDuration=222 ms, finalizationTime=0 ms).
+2023-01-06 05:27:47,135 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 95 as completed for source Source: Kafka Source.
+2023-01-06 05:27:48,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 96 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982868913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:49,121 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 96 for job a9424a3d870abd6ec1f312d779aca08f (2694666 bytes, checkpointDuration=207 ms, finalizationTime=1 ms).
+2023-01-06 05:27:49,121 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 96 as completed for source Source: Kafka Source.
+2023-01-06 05:27:50,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 97 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982870913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:51,073 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 97 for job a9424a3d870abd6ec1f312d779aca08f (2678847 bytes, checkpointDuration=160 ms, finalizationTime=0 ms).
+2023-01-06 05:27:51,073 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 97 as completed for source Source: Kafka Source.
+2023-01-06 05:27:52,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 98 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982872913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:53,082 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 98 for job a9424a3d870abd6ec1f312d779aca08f (2684041 bytes, checkpointDuration=169 ms, finalizationTime=0 ms).
+2023-01-06 05:27:53,082 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 98 as completed for source Source: Kafka Source.
+2023-01-06 05:27:54,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 99 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982874913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:55,077 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 99 for job a9424a3d870abd6ec1f312d779aca08f (2689237 bytes, checkpointDuration=164 ms, finalizationTime=0 ms).
+2023-01-06 05:27:55,077 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 99 as completed for source Source: Kafka Source.
+2023-01-06 05:27:56,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 100 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982876913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:57,271 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 100 for job a9424a3d870abd6ec1f312d779aca08f (2694437 bytes, checkpointDuration=358 ms, finalizationTime=0 ms).
+2023-01-06 05:27:57,271 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 100 as completed for source Source: Kafka Source.
+2023-01-06 05:27:58,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 101 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982878913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:27:59,089 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 101 for job a9424a3d870abd6ec1f312d779aca08f (2678118 bytes, checkpointDuration=176 ms, finalizationTime=0 ms).
+2023-01-06 05:27:59,089 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 101 as completed for source Source: Kafka Source.
+2023-01-06 05:28:00,914 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 102 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982880913 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:01,083 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 102 for job a9424a3d870abd6ec1f312d779aca08f (2683337 bytes, checkpointDuration=170 ms, finalizationTime=0 ms).
+2023-01-06 05:28:01,083 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 102 as completed for source Source: Kafka Source.
+2023-01-06 05:28:02,330 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Closing TaskExecutor connection localhost:37493-c2e22e because: The TaskExecutor is shutting down.
+2023-01-06 05:28:02,331 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:28:02,333 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (76e1cdd2e94d7344835375bd7330ddb4) switched from RUNNING to FAILED on localhost:37493-c2e22e @ localhost (dataPort=42785).
+org.apache.flink.util.FlinkException: The TaskExecutor is shutting down.
+	at org.apache.flink.runtime.taskexecutor.TaskExecutor.onStop(TaskExecutor.java:456) ~[flink-dist-1.15.0.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.RpcEndpoint.internalCallOnStop(RpcEndpoint.java:214) ~[flink-dist-1.15.0.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.akka.AkkaRpcActor$StartedState.lambda$terminate$0(AkkaRpcActor.java:568) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at org.apache.flink.runtime.concurrent.akka.ClassLoadingUtils.runWithContextClassLoader(ClassLoadingUtils.java:83) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.akka.AkkaRpcActor$StartedState.terminate(AkkaRpcActor.java:567) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.akka.AkkaRpcActor.handleControlMessage(AkkaRpcActor.java:191) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.japi.pf.UnitCaseStatement.apply(CaseStatements.scala:24) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.japi.pf.UnitCaseStatement.apply(CaseStatements.scala:20) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction.applyOrElse(PartialFunction.scala:123) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction.applyOrElse$(PartialFunction.scala:122) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.japi.pf.UnitCaseStatement.applyOrElse(CaseStatements.scala:20) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction$OrElse.applyOrElse(PartialFunction.scala:171) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction$OrElse.applyOrElse(PartialFunction.scala:172) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.Actor.aroundReceive(Actor.scala:537) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.AbstractActor.aroundReceive(AbstractActor.scala:220) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:580) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:548) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289) [?:1.8.0_352]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056) [?:1.8.0_352]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692) [?:1.8.0_352]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175) [?:1.8.0_352]
+2023-01-06 05:28:02,333 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 76e1cdd2e94d7344835375bd7330ddb4.
+2023-01-06 05:28:02,333 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 76e1cdd2e94d7344835375bd7330ddb4.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (86d150f74b1566278981ab4cd373fabd) switched from RUNNING to CANCELING.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (86d150f74b1566278981ab4cd373fabd) switched from CANCELING to CANCELED.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 86d150f74b1566278981ab4cd373fabd.
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.jobmaster.slotpool.DefaultDeclarativeSlotPool [] - Releasing slot [8a708d0de963639d06eb317a6c844a31].
+2023-01-06 05:28:02,334 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 102 @ 1672982880913 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-102.
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 102 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (315534985af0c1a2c81940f4c0244a33) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (34fab11c19b4415a4fe6925f63e150cf) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:03,334 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:28:03,334 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:28:03,335 WARN  org.apache.flink.runtime.jobmaster.slotpool.DeclarativeSlotPoolBridge [] - Could not acquire the minimum required resources, failing slot requests. Acquired: []. Current slot pool status: Registered TMs: 0, registered slots: 0 free slots: 0
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (315534985af0c1a2c81940f4c0244a33) switched from SCHEDULED to FAILED on [unassigned resource].
+org.apache.flink.runtime.jobmanager.scheduler.NoResourceAvailableException: Could not acquire the minimum required resources.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 315534985af0c1a2c81940f4c0244a33.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (34fab11c19b4415a4fe6925f63e150cf) switched from SCHEDULED to CANCELING.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (34fab11c19b4415a4fe6925f63e150cf) switched from CANCELING to CANCELED.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 34fab11c19b4415a4fe6925f63e150cf.
+2023-01-06 05:28:03,335 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 102 @ 1672982880913 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-102.
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (5e7dc962faab8c9f73217b76eda1d8ec) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (21d718733aa6940f0ca692a895b85667) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 102 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:28:04,336 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:28:04,336 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:28:04,336 WARN  org.apache.flink.runtime.jobmaster.slotpool.DeclarativeSlotPoolBridge [] - Could not acquire the minimum required resources, failing slot requests. Acquired: []. Current slot pool status: Registered TMs: 0, registered slots: 0 free slots: 0
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (5e7dc962faab8c9f73217b76eda1d8ec) switched from SCHEDULED to FAILED on [unassigned resource].
+org.apache.flink.runtime.jobmanager.scheduler.NoResourceAvailableException: Could not acquire the minimum required resources.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 5e7dc962faab8c9f73217b76eda1d8ec.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (21d718733aa6940f0ca692a895b85667) switched from SCHEDULED to CANCELING.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (21d718733aa6940f0ca692a895b85667) switched from CANCELING to CANCELED.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 21d718733aa6940f0ca692a895b85667.
+2023-01-06 05:28:04,337 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 102 @ 1672982880913 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-102.
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (842e36d3808590edc1a3ec011b8613e4) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (647b961da86fb465c8886a9dccc47374) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 102 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:28:05,338 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:28:05,338 WARN  org.apache.flink.runtime.jobmaster.slotpool.DeclarativeSlotPoolBridge [] - Could not acquire the minimum required resources, failing slot requests. Acquired: []. Current slot pool status: Registered TMs: 0, registered slots: 0 free slots: 0
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (842e36d3808590edc1a3ec011b8613e4) switched from SCHEDULED to FAILED on [unassigned resource].
+org.apache.flink.runtime.jobmanager.scheduler.NoResourceAvailableException: Could not acquire the minimum required resources.
+2023-01-06 05:28:05,338 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 842e36d3808590edc1a3ec011b8613e4.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (647b961da86fb465c8886a9dccc47374) switched from SCHEDULED to CANCELING.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (647b961da86fb465c8886a9dccc47374) switched from CANCELING to CANCELED.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 647b961da86fb465c8886a9dccc47374.
+2023-01-06 05:28:05,339 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:28:06,236 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registering TaskManager with ResourceID localhost:46181-1b98a7 (akka.tcp://flink@localhost:46181/user/rpc/taskmanager_0) at ResourceManager
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 102 @ 1672982880913 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-102.
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (4f6dbf33819832ad304c899144c98f10) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (1be5aff06de45b6e83233236048dc293) switched from CREATED to SCHEDULED.
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 102 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:28:06,339 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:28:06,365 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (4f6dbf33819832ad304c899144c98f10) switched from SCHEDULED to DEPLOYING.
+2023-01-06 05:28:06,365 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Kafka Source -> Map (1/1) (attempt #4) with attempt id 4f6dbf33819832ad304c899144c98f10 and vertex id a8a4444ed12a4ca1c5290450ed282314_0 to localhost:46181-1b98a7 @ localhost (dataPort=38585) with allocation id 9355291b2299749a3d40cbe10660cce5
+2023-01-06 05:28:06,365 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (1be5aff06de45b6e83233236048dc293) switched from SCHEDULED to DEPLOYING.
+2023-01-06 05:28:06,365 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Map -> Sink: Print to Std. Out (1/1) (attempt #4) with attempt id 1be5aff06de45b6e83233236048dc293 and vertex id e25ec7fe94796af6334ee89417d58350_0 to localhost:46181-1b98a7 @ localhost (dataPort=38585) with allocation id 9355291b2299749a3d40cbe10660cce5
+2023-01-06 05:28:06,697 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (4f6dbf33819832ad304c899144c98f10) switched from DEPLOYING to INITIALIZING.
+2023-01-06 05:28:06,697 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (1be5aff06de45b6e83233236048dc293) switched from DEPLOYING to INITIALIZING.
+2023-01-06 05:28:06,824 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Kafka Source registering reader for parallel task 0 @ localhost
+2023-01-06 05:28:06,826 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (4f6dbf33819832ad304c899144c98f10) switched from INITIALIZING to RUNNING.
+2023-01-06 05:28:07,045 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (1be5aff06de45b6e83233236048dc293) switched from INITIALIZING to RUNNING.
+2023-01-06 05:28:07,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 103 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982887228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:07,499 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 103 for job a9424a3d870abd6ec1f312d779aca08f (2676588 bytes, checkpointDuration=271 ms, finalizationTime=0 ms).
+2023-01-06 05:28:07,499 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 103 as completed for source Source: Kafka Source.
+2023-01-06 05:28:09,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 104 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982889228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:09,461 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 104 for job a9424a3d870abd6ec1f312d779aca08f (2681781 bytes, checkpointDuration=233 ms, finalizationTime=0 ms).
+2023-01-06 05:28:09,461 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 104 as completed for source Source: Kafka Source.
+2023-01-06 05:28:11,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 105 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982891228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:11,382 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 105 for job a9424a3d870abd6ec1f312d779aca08f (2660111 bytes, checkpointDuration=154 ms, finalizationTime=0 ms).
+2023-01-06 05:28:11,382 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 105 as completed for source Source: Kafka Source.
+2023-01-06 05:28:13,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 106 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982893228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:13,381 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 106 for job a9424a3d870abd6ec1f312d779aca08f (2665300 bytes, checkpointDuration=153 ms, finalizationTime=0 ms).
+2023-01-06 05:28:13,381 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 106 as completed for source Source: Kafka Source.
+2023-01-06 05:28:15,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 107 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982895228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:15,392 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 107 for job a9424a3d870abd6ec1f312d779aca08f (2670535 bytes, checkpointDuration=164 ms, finalizationTime=0 ms).
+2023-01-06 05:28:15,392 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 107 as completed for source Source: Kafka Source.
+2023-01-06 05:28:17,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 108 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982897228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:17,419 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 108 for job a9424a3d870abd6ec1f312d779aca08f (2675777 bytes, checkpointDuration=190 ms, finalizationTime=1 ms).
+2023-01-06 05:28:17,419 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 108 as completed for source Source: Kafka Source.
+2023-01-06 05:28:19,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 109 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982899228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:19,396 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 109 for job a9424a3d870abd6ec1f312d779aca08f (2661373 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:28:19,396 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 109 as completed for source Source: Kafka Source.
+2023-01-06 05:28:21,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 110 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982901228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:21,407 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 110 for job a9424a3d870abd6ec1f312d779aca08f (2666578 bytes, checkpointDuration=178 ms, finalizationTime=1 ms).
+2023-01-06 05:28:21,407 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 110 as completed for source Source: Kafka Source.
+2023-01-06 05:28:23,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 111 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982903228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:23,391 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 111 for job a9424a3d870abd6ec1f312d779aca08f (2671785 bytes, checkpointDuration=163 ms, finalizationTime=0 ms).
+2023-01-06 05:28:23,391 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 111 as completed for source Source: Kafka Source.
+2023-01-06 05:28:25,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 112 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982905228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:25,418 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 112 for job a9424a3d870abd6ec1f312d779aca08f (2676990 bytes, checkpointDuration=190 ms, finalizationTime=0 ms).
+2023-01-06 05:28:25,419 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 112 as completed for source Source: Kafka Source.
+2023-01-06 05:28:27,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 113 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982907228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:27,388 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 113 for job a9424a3d870abd6ec1f312d779aca08f (2662452 bytes, checkpointDuration=160 ms, finalizationTime=0 ms).
+2023-01-06 05:28:27,388 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 113 as completed for source Source: Kafka Source.
+2023-01-06 05:28:29,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 114 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982909228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:29,397 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 114 for job a9424a3d870abd6ec1f312d779aca08f (2667683 bytes, checkpointDuration=169 ms, finalizationTime=0 ms).
+2023-01-06 05:28:29,398 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 114 as completed for source Source: Kafka Source.
+2023-01-06 05:28:31,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 115 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982911228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:31,399 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 115 for job a9424a3d870abd6ec1f312d779aca08f (2672870 bytes, checkpointDuration=171 ms, finalizationTime=0 ms).
+2023-01-06 05:28:31,399 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 115 as completed for source Source: Kafka Source.
+2023-01-06 05:28:33,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 116 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982913228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:33,486 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 116 for job a9424a3d870abd6ec1f312d779aca08f (2678104 bytes, checkpointDuration=257 ms, finalizationTime=0 ms).
+2023-01-06 05:28:33,486 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 116 as completed for source Source: Kafka Source.
+2023-01-06 05:28:35,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 117 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982915228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:35,396 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 117 for job a9424a3d870abd6ec1f312d779aca08f (2663104 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:28:35,397 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 117 as completed for source Source: Kafka Source.
+2023-01-06 05:28:37,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 118 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982917228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:37,389 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 118 for job a9424a3d870abd6ec1f312d779aca08f (2668341 bytes, checkpointDuration=161 ms, finalizationTime=0 ms).
+2023-01-06 05:28:37,389 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 118 as completed for source Source: Kafka Source.
+2023-01-06 05:28:39,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 119 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982919228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:39,399 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 119 for job a9424a3d870abd6ec1f312d779aca08f (2673560 bytes, checkpointDuration=171 ms, finalizationTime=0 ms).
+2023-01-06 05:28:39,399 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 119 as completed for source Source: Kafka Source.
+2023-01-06 05:28:41,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 120 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982921228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:41,435 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 120 for job a9424a3d870abd6ec1f312d779aca08f (2678794 bytes, checkpointDuration=207 ms, finalizationTime=0 ms).
+2023-01-06 05:28:41,436 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 120 as completed for source Source: Kafka Source.
+2023-01-06 05:28:43,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 121 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982923228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:43,387 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 121 for job a9424a3d870abd6ec1f312d779aca08f (2663862 bytes, checkpointDuration=159 ms, finalizationTime=0 ms).
+2023-01-06 05:28:43,387 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 121 as completed for source Source: Kafka Source.
+2023-01-06 05:28:45,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 122 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982925228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:45,398 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 122 for job a9424a3d870abd6ec1f312d779aca08f (2669097 bytes, checkpointDuration=169 ms, finalizationTime=1 ms).
+2023-01-06 05:28:45,398 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 122 as completed for source Source: Kafka Source.
+2023-01-06 05:28:47,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 123 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982927228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:47,391 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 123 for job a9424a3d870abd6ec1f312d779aca08f (2674299 bytes, checkpointDuration=163 ms, finalizationTime=0 ms).
+2023-01-06 05:28:47,391 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 123 as completed for source Source: Kafka Source.
+2023-01-06 05:28:49,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 124 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982929228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:49,425 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 124 for job a9424a3d870abd6ec1f312d779aca08f (2679546 bytes, checkpointDuration=197 ms, finalizationTime=0 ms).
+2023-01-06 05:28:49,426 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 124 as completed for source Source: Kafka Source.
+2023-01-06 05:28:51,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 125 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982931228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:51,395 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 125 for job a9424a3d870abd6ec1f312d779aca08f (2664358 bytes, checkpointDuration=167 ms, finalizationTime=0 ms).
+2023-01-06 05:28:51,395 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 125 as completed for source Source: Kafka Source.
+2023-01-06 05:28:53,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 126 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982933228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:53,396 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 126 for job a9424a3d870abd6ec1f312d779aca08f (2669543 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:28:53,397 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 126 as completed for source Source: Kafka Source.
+2023-01-06 05:28:55,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 127 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982935228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:55,391 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 127 for job a9424a3d870abd6ec1f312d779aca08f (2674738 bytes, checkpointDuration=163 ms, finalizationTime=0 ms).
+2023-01-06 05:28:55,391 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 127 as completed for source Source: Kafka Source.
+2023-01-06 05:28:57,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 128 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982937228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:57,434 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 128 for job a9424a3d870abd6ec1f312d779aca08f (2679931 bytes, checkpointDuration=206 ms, finalizationTime=0 ms).
+2023-01-06 05:28:57,434 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 128 as completed for source Source: Kafka Source.
+2023-01-06 05:28:59,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 129 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982939228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:28:59,619 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 129 for job a9424a3d870abd6ec1f312d779aca08f (2664910 bytes, checkpointDuration=391 ms, finalizationTime=0 ms).
+2023-01-06 05:28:59,619 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 129 as completed for source Source: Kafka Source.
+2023-01-06 05:29:01,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 130 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982941228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:01,388 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 130 for job a9424a3d870abd6ec1f312d779aca08f (2670144 bytes, checkpointDuration=160 ms, finalizationTime=0 ms).
+2023-01-06 05:29:01,388 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 130 as completed for source Source: Kafka Source.
+2023-01-06 05:29:03,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 131 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982943228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:03,398 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 131 for job a9424a3d870abd6ec1f312d779aca08f (2675329 bytes, checkpointDuration=170 ms, finalizationTime=0 ms).
+2023-01-06 05:29:03,398 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 131 as completed for source Source: Kafka Source.
+2023-01-06 05:29:05,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 132 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982945228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:05,443 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 132 for job a9424a3d870abd6ec1f312d779aca08f (2680530 bytes, checkpointDuration=215 ms, finalizationTime=0 ms).
+2023-01-06 05:29:05,443 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 132 as completed for source Source: Kafka Source.
+2023-01-06 05:29:07,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 133 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982947228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:07,394 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 133 for job a9424a3d870abd6ec1f312d779aca08f (2665262 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:29:07,394 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 133 as completed for source Source: Kafka Source.
+2023-01-06 05:29:09,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 134 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982949228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:09,396 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 134 for job a9424a3d870abd6ec1f312d779aca08f (2670490 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:29:09,397 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 134 as completed for source Source: Kafka Source.
+2023-01-06 05:29:11,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 135 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982951228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:11,406 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 135 for job a9424a3d870abd6ec1f312d779aca08f (2675733 bytes, checkpointDuration=178 ms, finalizationTime=0 ms).
+2023-01-06 05:29:11,407 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 135 as completed for source Source: Kafka Source.
+2023-01-06 05:29:13,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 136 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982953228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:13,442 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 136 for job a9424a3d870abd6ec1f312d779aca08f (2680957 bytes, checkpointDuration=214 ms, finalizationTime=0 ms).
+2023-01-06 05:29:13,443 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 136 as completed for source Source: Kafka Source.
+2023-01-06 05:29:15,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 137 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982955228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:15,394 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 137 for job a9424a3d870abd6ec1f312d779aca08f (2665550 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:29:15,394 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 137 as completed for source Source: Kafka Source.
+2023-01-06 05:29:17,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 138 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982957228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:17,396 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 138 for job a9424a3d870abd6ec1f312d779aca08f (2670771 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:29:17,396 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 138 as completed for source Source: Kafka Source.
+2023-01-06 05:29:19,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 139 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982959228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:19,397 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 139 for job a9424a3d870abd6ec1f312d779aca08f (2675969 bytes, checkpointDuration=169 ms, finalizationTime=0 ms).
+2023-01-06 05:29:19,397 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 139 as completed for source Source: Kafka Source.
+2023-01-06 05:29:21,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 140 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982961228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:21,433 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 140 for job a9424a3d870abd6ec1f312d779aca08f (2681214 bytes, checkpointDuration=205 ms, finalizationTime=0 ms).
+2023-01-06 05:29:21,433 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 140 as completed for source Source: Kafka Source.
+2023-01-06 05:29:23,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 141 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982963228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:23,385 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 141 for job a9424a3d870abd6ec1f312d779aca08f (2665558 bytes, checkpointDuration=157 ms, finalizationTime=0 ms).
+2023-01-06 05:29:23,385 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 141 as completed for source Source: Kafka Source.
+2023-01-06 05:29:25,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 142 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982965228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:25,396 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 142 for job a9424a3d870abd6ec1f312d779aca08f (2670767 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:29:25,396 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 142 as completed for source Source: Kafka Source.
+2023-01-06 05:29:27,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 143 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982967228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:27,398 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 143 for job a9424a3d870abd6ec1f312d779aca08f (2675928 bytes, checkpointDuration=169 ms, finalizationTime=1 ms).
+2023-01-06 05:29:27,398 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 143 as completed for source Source: Kafka Source.
+2023-01-06 05:29:29,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 144 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982969228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:29,433 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 144 for job a9424a3d870abd6ec1f312d779aca08f (2681186 bytes, checkpointDuration=205 ms, finalizationTime=0 ms).
+2023-01-06 05:29:29,433 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 144 as completed for source Source: Kafka Source.
+2023-01-06 05:29:31,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 145 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982971228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:31,427 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 145 for job a9424a3d870abd6ec1f312d779aca08f (2665289 bytes, checkpointDuration=199 ms, finalizationTime=0 ms).
+2023-01-06 05:29:31,427 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 145 as completed for source Source: Kafka Source.
+2023-01-06 05:29:33,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 146 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982973228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:33,395 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 146 for job a9424a3d870abd6ec1f312d779aca08f (2670540 bytes, checkpointDuration=167 ms, finalizationTime=0 ms).
+2023-01-06 05:29:33,395 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 146 as completed for source Source: Kafka Source.
+2023-01-06 05:29:35,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 147 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982975228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:35,398 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 147 for job a9424a3d870abd6ec1f312d779aca08f (2675698 bytes, checkpointDuration=170 ms, finalizationTime=0 ms).
+2023-01-06 05:29:35,398 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 147 as completed for source Source: Kafka Source.
+2023-01-06 05:29:37,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 148 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982977228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:37,408 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 148 for job a9424a3d870abd6ec1f312d779aca08f (2680896 bytes, checkpointDuration=180 ms, finalizationTime=0 ms).
+2023-01-06 05:29:37,408 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 148 as completed for source Source: Kafka Source.
+2023-01-06 05:29:39,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 149 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982979228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:39,393 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 149 for job a9424a3d870abd6ec1f312d779aca08f (2664547 bytes, checkpointDuration=165 ms, finalizationTime=0 ms).
+2023-01-06 05:29:39,393 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 149 as completed for source Source: Kafka Source.
+2023-01-06 05:29:41,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 150 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982981228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:41,395 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 150 for job a9424a3d870abd6ec1f312d779aca08f (2669807 bytes, checkpointDuration=167 ms, finalizationTime=0 ms).
+2023-01-06 05:29:41,395 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 150 as completed for source Source: Kafka Source.
+2023-01-06 05:29:43,228 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 151 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982983228 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:43,397 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 151 for job a9424a3d870abd6ec1f312d779aca08f (2675022 bytes, checkpointDuration=169 ms, finalizationTime=0 ms).
+2023-01-06 05:29:43,397 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 151 as completed for source Source: Kafka Source.
+2023-01-06 05:29:44,422 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Closing TaskExecutor connection localhost:46181-1b98a7 because: The TaskExecutor is shutting down.
+2023-01-06 05:29:44,423 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (4f6dbf33819832ad304c899144c98f10) switched from RUNNING to FAILED on localhost:46181-1b98a7 @ localhost (dataPort=38585).
+org.apache.flink.util.FlinkException: The TaskExecutor is shutting down.
+	at org.apache.flink.runtime.taskexecutor.TaskExecutor.onStop(TaskExecutor.java:456) ~[flink-dist-1.15.0.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.RpcEndpoint.internalCallOnStop(RpcEndpoint.java:214) ~[flink-dist-1.15.0.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.akka.AkkaRpcActor$StartedState.lambda$terminate$0(AkkaRpcActor.java:568) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at org.apache.flink.runtime.concurrent.akka.ClassLoadingUtils.runWithContextClassLoader(ClassLoadingUtils.java:83) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.akka.AkkaRpcActor$StartedState.terminate(AkkaRpcActor.java:567) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at org.apache.flink.runtime.rpc.akka.AkkaRpcActor.handleControlMessage(AkkaRpcActor.java:191) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.japi.pf.UnitCaseStatement.apply(CaseStatements.scala:24) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.japi.pf.UnitCaseStatement.apply(CaseStatements.scala:20) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction.applyOrElse(PartialFunction.scala:123) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction.applyOrElse$(PartialFunction.scala:122) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.japi.pf.UnitCaseStatement.applyOrElse(CaseStatements.scala:20) ~[flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction$OrElse.applyOrElse(PartialFunction.scala:171) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at scala.PartialFunction$OrElse.applyOrElse(PartialFunction.scala:172) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.Actor.aroundReceive(Actor.scala:537) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.AbstractActor.aroundReceive(AbstractActor.scala:220) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:580) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:548) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243) [flink-rpc-akka_4744ce91-7bf1-4edd-be05-fbddc95f12ad.jar:1.15.0]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289) [?:1.8.0_352]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056) [?:1.8.0_352]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692) [?:1.8.0_352]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175) [?:1.8.0_352]
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 4f6dbf33819832ad304c899144c98f10.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 4f6dbf33819832ad304c899144c98f10.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (1be5aff06de45b6e83233236048dc293) switched from RUNNING to CANCELING.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (1be5aff06de45b6e83233236048dc293) switched from CANCELING to CANCELED.
+2023-01-06 05:29:44,426 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 1be5aff06de45b6e83233236048dc293.
+2023-01-06 05:29:44,427 INFO  org.apache.flink.runtime.jobmaster.slotpool.DefaultDeclarativeSlotPool [] - Releasing slot [9355291b2299749a3d40cbe10660cce5].
+2023-01-06 05:29:44,427 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 151 @ 1672982983228 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-151.
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 151 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (911ed4f9a44010faf86188d6c5603736) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (fd87524a2dab13aed503abe7598a1fa6) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:29:45,427 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:29:45,427 WARN  org.apache.flink.runtime.jobmaster.slotpool.DeclarativeSlotPoolBridge [] - Could not acquire the minimum required resources, failing slot requests. Acquired: []. Current slot pool status: Registered TMs: 0, registered slots: 0 free slots: 0
+2023-01-06 05:29:45,427 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (911ed4f9a44010faf86188d6c5603736) switched from SCHEDULED to FAILED on [unassigned resource].
+org.apache.flink.runtime.jobmanager.scheduler.NoResourceAvailableException: Could not acquire the minimum required resources.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 911ed4f9a44010faf86188d6c5603736.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (fd87524a2dab13aed503abe7598a1fa6) switched from SCHEDULED to CANCELING.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (fd87524a2dab13aed503abe7598a1fa6) switched from CANCELING to CANCELED.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution fd87524a2dab13aed503abe7598a1fa6.
+2023-01-06 05:29:45,428 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:29:46,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:29:46,428 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 151 @ 1672982983228 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-151.
+2023-01-06 05:29:46,428 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:29:46,428 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 151 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:29:46,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (6984515a51437ac2628262be7e50697d) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:46,428 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (ed255b37d4de100be2ddaf48ecc5e06a) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:29:46,429 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:29:46,429 WARN  org.apache.flink.runtime.jobmaster.slotpool.DeclarativeSlotPoolBridge [] - Could not acquire the minimum required resources, failing slot requests. Acquired: []. Current slot pool status: Registered TMs: 0, registered slots: 0 free slots: 0
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (6984515a51437ac2628262be7e50697d) switched from SCHEDULED to FAILED on [unassigned resource].
+org.apache.flink.runtime.jobmanager.scheduler.NoResourceAvailableException: Could not acquire the minimum required resources.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 6984515a51437ac2628262be7e50697d.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (ed255b37d4de100be2ddaf48ecc5e06a) switched from SCHEDULED to CANCELING.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (ed255b37d4de100be2ddaf48ecc5e06a) switched from CANCELING to CANCELED.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution ed255b37d4de100be2ddaf48ecc5e06a.
+2023-01-06 05:29:46,429 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 151 @ 1672982983228 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-151.
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (26229b7822c691dc57e5e2b0664be0e3) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (462a8ab008385a9a6e6a4073129e1360) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 151 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:29:47,430 WARN  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Could not fulfill resource requirements of job a9424a3d870abd6ec1f312d779aca08f. Free slots: 0
+2023-01-06 05:29:47,430 WARN  org.apache.flink.runtime.jobmaster.slotpool.DeclarativeSlotPoolBridge [] - Could not acquire the minimum required resources, failing slot requests. Acquired: []. Current slot pool status: Registered TMs: 0, registered slots: 0 free slots: 0
+2023-01-06 05:29:47,430 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (26229b7822c691dc57e5e2b0664be0e3) switched from SCHEDULED to FAILED on [unassigned resource].
+org.apache.flink.runtime.jobmanager.scheduler.NoResourceAvailableException: Could not acquire the minimum required resources.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 26229b7822c691dc57e5e2b0664be0e3.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - Calculating tasks to restart to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.failover.flip1.RestartPipelinedRegionFailoverStrategy [] - 2 tasks should be restarted to recover the failed task a8a4444ed12a4ca1c5290450ed282314_0. 
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Removing registered reader after failure for subtask 0 of source Source: Kafka Source.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to RESTARTING.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (462a8ab008385a9a6e6a4073129e1360) switched from SCHEDULED to CANCELING.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (462a8ab008385a9a6e6a4073129e1360) switched from CANCELING to CANCELED.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Discarding the results produced by task execution 462a8ab008385a9a6e6a4073129e1360.
+2023-01-06 05:29:47,431 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Clearing resource requirements of job a9424a3d870abd6ec1f312d779aca08f
+2023-01-06 05:29:48,293 INFO  org.apache.flink.runtime.resourcemanager.StandaloneResourceManager [] - Registering TaskManager with ResourceID localhost:41659-6e3acf (akka.tcp://flink@localhost:41659/user/rpc/taskmanager_0) at ResourceManager
+2023-01-06 05:29:48,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RESTARTING to RUNNING.
+2023-01-06 05:29:48,431 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Restoring job a9424a3d870abd6ec1f312d779aca08f from Checkpoint 151 @ 1672982983228 for a9424a3d870abd6ec1f312d779aca08f located at file:/tmp/flink-checkpoints-directory/a9424a3d870abd6ec1f312d779aca08f/chk-151.
+2023-01-06 05:29:48,431 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - No master state to restore
+2023-01-06 05:29:48,431 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Recovering subtask 0 to checkpoint 151 for source Source: Kafka Source to checkpoint.
+2023-01-06 05:29:48,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (8d915481cffbce80c35c7c9f4ed2a833) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:48,431 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (0c4039ef570083f5e72df70aab31e4cd) switched from CREATED to SCHEDULED.
+2023-01-06 05:29:48,432 INFO  org.apache.flink.runtime.resourcemanager.slotmanager.DeclarativeSlotManager [] - Received resource requirements from job a9424a3d870abd6ec1f312d779aca08f: [ResourceRequirement{resourceProfile=ResourceProfile{UNKNOWN}, numberOfRequiredSlots=1}]
+2023-01-06 05:29:48,457 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (8d915481cffbce80c35c7c9f4ed2a833) switched from SCHEDULED to DEPLOYING.
+2023-01-06 05:29:48,457 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Source: Kafka Source -> Map (1/1) (attempt #8) with attempt id 8d915481cffbce80c35c7c9f4ed2a833 and vertex id a8a4444ed12a4ca1c5290450ed282314_0 to localhost:41659-6e3acf @ localhost (dataPort=38057) with allocation id 055150e9ce370a7e5a3fabeaeb7bb016
+2023-01-06 05:29:48,457 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (0c4039ef570083f5e72df70aab31e4cd) switched from SCHEDULED to DEPLOYING.
+2023-01-06 05:29:48,457 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Deploying Map -> Sink: Print to Std. Out (1/1) (attempt #8) with attempt id 0c4039ef570083f5e72df70aab31e4cd and vertex id e25ec7fe94796af6334ee89417d58350_0 to localhost:41659-6e3acf @ localhost (dataPort=38057) with allocation id 055150e9ce370a7e5a3fabeaeb7bb016
+2023-01-06 05:29:48,798 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (8d915481cffbce80c35c7c9f4ed2a833) switched from DEPLOYING to INITIALIZING.
+2023-01-06 05:29:48,798 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (0c4039ef570083f5e72df70aab31e4cd) switched from DEPLOYING to INITIALIZING.
+2023-01-06 05:29:48,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointFailureManager [] - Failed to trigger checkpoint for job a9424a3d870abd6ec1f312d779aca08f since Checkpoint triggering task Source: Kafka Source -> Map (1/1) of job a9424a3d870abd6ec1f312d779aca08f is not being executed at the moment. Aborting checkpoint. Failure reason: Not all required tasks are currently running..
+2023-01-06 05:29:48,954 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Source Source: Kafka Source registering reader for parallel task 0 @ localhost
+2023-01-06 05:29:48,965 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (8d915481cffbce80c35c7c9f4ed2a833) switched from INITIALIZING to RUNNING.
+2023-01-06 05:29:49,114 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (0c4039ef570083f5e72df70aab31e4cd) switched from INITIALIZING to RUNNING.
+2023-01-06 05:29:50,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 152 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982990841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:51,071 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 152 for job a9424a3d870abd6ec1f312d779aca08f (2684209 bytes, checkpointDuration=230 ms, finalizationTime=0 ms).
+2023-01-06 05:29:51,071 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 152 as completed for source Source: Kafka Source.
+2023-01-06 05:29:52,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 153 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982992841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:53,017 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 153 for job a9424a3d870abd6ec1f312d779aca08f (2660240 bytes, checkpointDuration=176 ms, finalizationTime=0 ms).
+2023-01-06 05:29:53,017 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 153 as completed for source Source: Kafka Source.
+2023-01-06 05:29:54,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 154 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982994841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:55,025 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 154 for job a9424a3d870abd6ec1f312d779aca08f (2665453 bytes, checkpointDuration=184 ms, finalizationTime=0 ms).
+2023-01-06 05:29:55,025 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 154 as completed for source Source: Kafka Source.
+2023-01-06 05:29:56,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 155 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982996841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:57,020 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 155 for job a9424a3d870abd6ec1f312d779aca08f (2670716 bytes, checkpointDuration=179 ms, finalizationTime=0 ms).
+2023-01-06 05:29:57,020 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 155 as completed for source Source: Kafka Source.
+2023-01-06 05:29:58,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 156 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672982998841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:29:59,039 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 156 for job a9424a3d870abd6ec1f312d779aca08f (2675908 bytes, checkpointDuration=198 ms, finalizationTime=0 ms).
+2023-01-06 05:29:59,039 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 156 as completed for source Source: Kafka Source.
+2023-01-06 05:30:00,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 157 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983000841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:00,991 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 157 for job a9424a3d870abd6ec1f312d779aca08f (2661469 bytes, checkpointDuration=150 ms, finalizationTime=0 ms).
+2023-01-06 05:30:00,991 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 157 as completed for source Source: Kafka Source.
+2023-01-06 05:30:02,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 158 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983002841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:03,001 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 158 for job a9424a3d870abd6ec1f312d779aca08f (2666696 bytes, checkpointDuration=160 ms, finalizationTime=0 ms).
+2023-01-06 05:30:03,001 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 158 as completed for source Source: Kafka Source.
+2023-01-06 05:30:04,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 159 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983004841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:05,011 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 159 for job a9424a3d870abd6ec1f312d779aca08f (2671893 bytes, checkpointDuration=170 ms, finalizationTime=0 ms).
+2023-01-06 05:30:05,011 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 159 as completed for source Source: Kafka Source.
+2023-01-06 05:30:06,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 160 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983006841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:07,047 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 160 for job a9424a3d870abd6ec1f312d779aca08f (2677125 bytes, checkpointDuration=205 ms, finalizationTime=1 ms).
+2023-01-06 05:30:07,047 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 160 as completed for source Source: Kafka Source.
+2023-01-06 05:30:08,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 161 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983008841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:09,032 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 161 for job a9424a3d870abd6ec1f312d779aca08f (2662477 bytes, checkpointDuration=191 ms, finalizationTime=0 ms).
+2023-01-06 05:30:09,032 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 161 as completed for source Source: Kafka Source.
+2023-01-06 05:30:10,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 162 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983010841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:11,009 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 162 for job a9424a3d870abd6ec1f312d779aca08f (2667694 bytes, checkpointDuration=168 ms, finalizationTime=0 ms).
+2023-01-06 05:30:11,009 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 162 as completed for source Source: Kafka Source.
+2023-01-06 05:30:12,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 163 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983012841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:13,011 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 163 for job a9424a3d870abd6ec1f312d779aca08f (2672907 bytes, checkpointDuration=170 ms, finalizationTime=0 ms).
+2023-01-06 05:30:13,011 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 163 as completed for source Source: Kafka Source.
+2023-01-06 05:30:14,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 164 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983014841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:15,053 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 164 for job a9424a3d870abd6ec1f312d779aca08f (2678105 bytes, checkpointDuration=212 ms, finalizationTime=0 ms).
+2023-01-06 05:30:15,053 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 164 as completed for source Source: Kafka Source.
+2023-01-06 05:30:16,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 165 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983016841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:17,015 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 165 for job a9424a3d870abd6ec1f312d779aca08f (2663144 bytes, checkpointDuration=174 ms, finalizationTime=0 ms).
+2023-01-06 05:30:17,015 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 165 as completed for source Source: Kafka Source.
+2023-01-06 05:30:18,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 166 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983018841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:19,000 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 166 for job a9424a3d870abd6ec1f312d779aca08f (2668357 bytes, checkpointDuration=159 ms, finalizationTime=0 ms).
+2023-01-06 05:30:19,000 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 166 as completed for source Source: Kafka Source.
+2023-01-06 05:30:20,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 167 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983020841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:21,010 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 167 for job a9424a3d870abd6ec1f312d779aca08f (2673574 bytes, checkpointDuration=169 ms, finalizationTime=0 ms).
+2023-01-06 05:30:21,010 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 167 as completed for source Source: Kafka Source.
+2023-01-06 05:30:22,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 168 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983022841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:23,037 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 168 for job a9424a3d870abd6ec1f312d779aca08f (2678792 bytes, checkpointDuration=196 ms, finalizationTime=0 ms).
+2023-01-06 05:30:23,037 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 168 as completed for source Source: Kafka Source.
+2023-01-06 05:30:24,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 169 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983024841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:25,038 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 169 for job a9424a3d870abd6ec1f312d779aca08f (2663843 bytes, checkpointDuration=197 ms, finalizationTime=0 ms).
+2023-01-06 05:30:25,038 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 169 as completed for source Source: Kafka Source.
+2023-01-06 05:30:26,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 170 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983026841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:27,007 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 170 for job a9424a3d870abd6ec1f312d779aca08f (2669022 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:30:27,007 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 170 as completed for source Source: Kafka Source.
+2023-01-06 05:30:28,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 171 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983028841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:29,001 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 171 for job a9424a3d870abd6ec1f312d779aca08f (2674256 bytes, checkpointDuration=160 ms, finalizationTime=0 ms).
+2023-01-06 05:30:29,001 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 171 as completed for source Source: Kafka Source.
+2023-01-06 05:30:30,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 172 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983030841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:31,037 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 172 for job a9424a3d870abd6ec1f312d779aca08f (2679473 bytes, checkpointDuration=196 ms, finalizationTime=0 ms).
+2023-01-06 05:30:31,037 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 172 as completed for source Source: Kafka Source.
+2023-01-06 05:30:32,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 173 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983032841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:33,005 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 173 for job a9424a3d870abd6ec1f312d779aca08f (2664341 bytes, checkpointDuration=164 ms, finalizationTime=0 ms).
+2023-01-06 05:30:33,005 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 173 as completed for source Source: Kafka Source.
+2023-01-06 05:30:34,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 174 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983034841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:35,039 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 174 for job a9424a3d870abd6ec1f312d779aca08f (2669526 bytes, checkpointDuration=198 ms, finalizationTime=0 ms).
+2023-01-06 05:30:35,039 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 174 as completed for source Source: Kafka Source.
+2023-01-06 05:30:36,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 175 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983036841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:37,008 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 175 for job a9424a3d870abd6ec1f312d779aca08f (2674725 bytes, checkpointDuration=167 ms, finalizationTime=0 ms).
+2023-01-06 05:30:37,008 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 175 as completed for source Source: Kafka Source.
+2023-01-06 05:30:38,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 176 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983038841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:39,035 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 176 for job a9424a3d870abd6ec1f312d779aca08f (2679953 bytes, checkpointDuration=194 ms, finalizationTime=0 ms).
+2023-01-06 05:30:39,035 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 176 as completed for source Source: Kafka Source.
+2023-01-06 05:30:40,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 177 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983040841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:41,004 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 177 for job a9424a3d870abd6ec1f312d779aca08f (2664970 bytes, checkpointDuration=163 ms, finalizationTime=0 ms).
+2023-01-06 05:30:41,004 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 177 as completed for source Source: Kafka Source.
+2023-01-06 05:30:42,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 178 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983042841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:43,006 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 178 for job a9424a3d870abd6ec1f312d779aca08f (2670182 bytes, checkpointDuration=164 ms, finalizationTime=1 ms).
+2023-01-06 05:30:43,006 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 178 as completed for source Source: Kafka Source.
+2023-01-06 05:30:44,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 179 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983044841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:45,023 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 179 for job a9424a3d870abd6ec1f312d779aca08f (2675426 bytes, checkpointDuration=182 ms, finalizationTime=0 ms).
+2023-01-06 05:30:45,023 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 179 as completed for source Source: Kafka Source.
+2023-01-06 05:30:46,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 180 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983046841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:47,052 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 180 for job a9424a3d870abd6ec1f312d779aca08f (2680636 bytes, checkpointDuration=211 ms, finalizationTime=0 ms).
+2023-01-06 05:30:47,052 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 180 as completed for source Source: Kafka Source.
+2023-01-06 05:30:48,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 181 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983048841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:49,004 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 181 for job a9424a3d870abd6ec1f312d779aca08f (2665231 bytes, checkpointDuration=162 ms, finalizationTime=1 ms).
+2023-01-06 05:30:49,004 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 181 as completed for source Source: Kafka Source.
+2023-01-06 05:30:50,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 182 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983050841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:51,006 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 182 for job a9424a3d870abd6ec1f312d779aca08f (2670452 bytes, checkpointDuration=165 ms, finalizationTime=0 ms).
+2023-01-06 05:30:51,006 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 182 as completed for source Source: Kafka Source.
+2023-01-06 05:30:52,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 183 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983052841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:53,007 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 183 for job a9424a3d870abd6ec1f312d779aca08f (2675640 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:30:53,008 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 183 as completed for source Source: Kafka Source.
+2023-01-06 05:30:54,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 184 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983054841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:55,051 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 184 for job a9424a3d870abd6ec1f312d779aca08f (2680845 bytes, checkpointDuration=210 ms, finalizationTime=0 ms).
+2023-01-06 05:30:55,051 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 184 as completed for source Source: Kafka Source.
+2023-01-06 05:30:56,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 185 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983056841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:57,021 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 185 for job a9424a3d870abd6ec1f312d779aca08f (2665509 bytes, checkpointDuration=179 ms, finalizationTime=1 ms).
+2023-01-06 05:30:57,021 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 185 as completed for source Source: Kafka Source.
+2023-01-06 05:30:58,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 186 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983058841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:30:58,997 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 186 for job a9424a3d870abd6ec1f312d779aca08f (2670742 bytes, checkpointDuration=156 ms, finalizationTime=0 ms).
+2023-01-06 05:30:58,997 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 186 as completed for source Source: Kafka Source.
+2023-01-06 05:31:00,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 187 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983060841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:01,008 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 187 for job a9424a3d870abd6ec1f312d779aca08f (2675964 bytes, checkpointDuration=167 ms, finalizationTime=0 ms).
+2023-01-06 05:31:01,008 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 187 as completed for source Source: Kafka Source.
+2023-01-06 05:31:02,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 188 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983062841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:03,052 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 188 for job a9424a3d870abd6ec1f312d779aca08f (2681174 bytes, checkpointDuration=211 ms, finalizationTime=0 ms).
+2023-01-06 05:31:03,052 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 188 as completed for source Source: Kafka Source.
+2023-01-06 05:31:04,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 189 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983064841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:05,196 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 189 for job a9424a3d870abd6ec1f312d779aca08f (2665465 bytes, checkpointDuration=354 ms, finalizationTime=1 ms).
+2023-01-06 05:31:05,196 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 189 as completed for source Source: Kafka Source.
+2023-01-06 05:31:06,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 190 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983066841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:07,014 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 190 for job a9424a3d870abd6ec1f312d779aca08f (2670649 bytes, checkpointDuration=173 ms, finalizationTime=0 ms).
+2023-01-06 05:31:07,014 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 190 as completed for source Source: Kafka Source.
+2023-01-06 05:31:08,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 191 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983068841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:09,007 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 191 for job a9424a3d870abd6ec1f312d779aca08f (2675875 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:31:09,007 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 191 as completed for source Source: Kafka Source.
+2023-01-06 05:31:10,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 192 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983070841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:11,035 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 192 for job a9424a3d870abd6ec1f312d779aca08f (2681086 bytes, checkpointDuration=194 ms, finalizationTime=0 ms).
+2023-01-06 05:31:11,035 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 192 as completed for source Source: Kafka Source.
+2023-01-06 05:31:12,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 193 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983072841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:13,020 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 193 for job a9424a3d870abd6ec1f312d779aca08f (2665107 bytes, checkpointDuration=179 ms, finalizationTime=0 ms).
+2023-01-06 05:31:13,020 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 193 as completed for source Source: Kafka Source.
+2023-01-06 05:31:14,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 194 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983074841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:15,013 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 194 for job a9424a3d870abd6ec1f312d779aca08f (2670326 bytes, checkpointDuration=172 ms, finalizationTime=0 ms).
+2023-01-06 05:31:15,013 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 194 as completed for source Source: Kafka Source.
+2023-01-06 05:31:16,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 195 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983076841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:17,007 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 195 for job a9424a3d870abd6ec1f312d779aca08f (2675548 bytes, checkpointDuration=166 ms, finalizationTime=0 ms).
+2023-01-06 05:31:17,008 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 195 as completed for source Source: Kafka Source.
+2023-01-06 05:31:18,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 196 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983078841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:19,026 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 196 for job a9424a3d870abd6ec1f312d779aca08f (2680825 bytes, checkpointDuration=185 ms, finalizationTime=0 ms).
+2023-01-06 05:31:19,026 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 196 as completed for source Source: Kafka Source.
+2023-01-06 05:31:20,842 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 197 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983080841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:21,095 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 197 for job a9424a3d870abd6ec1f312d779aca08f (2664808 bytes, checkpointDuration=254 ms, finalizationTime=0 ms).
+2023-01-06 05:31:21,095 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 197 as completed for source Source: Kafka Source.
+2023-01-06 05:31:22,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 198 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983082841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:23,013 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 198 for job a9424a3d870abd6ec1f312d779aca08f (2669934 bytes, checkpointDuration=172 ms, finalizationTime=0 ms).
+2023-01-06 05:31:23,013 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 198 as completed for source Source: Kafka Source.
+2023-01-06 05:31:24,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 199 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983084841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:25,007 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 199 for job a9424a3d870abd6ec1f312d779aca08f (2675149 bytes, checkpointDuration=165 ms, finalizationTime=1 ms).
+2023-01-06 05:31:25,007 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 199 as completed for source Source: Kafka Source.
+2023-01-06 05:31:26,841 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Triggering checkpoint 200 (type=CheckpointType{name='Checkpoint', sharingFilesStrategy=FORWARD_BACKWARD}) @ 1672983086841 for job a9424a3d870abd6ec1f312d779aca08f.
+2023-01-06 05:31:27,060 INFO  org.apache.flink.runtime.checkpoint.CheckpointCoordinator    [] - Completed checkpoint 200 for job a9424a3d870abd6ec1f312d779aca08f (2680384 bytes, checkpointDuration=219 ms, finalizationTime=0 ms).
+2023-01-06 05:31:27,060 INFO  org.apache.flink.runtime.source.coordinator.SourceCoordinator [] - Marking checkpoint 200 as completed for source Source: Kafka Source.
+2023-01-06 05:31:27,484 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Job wordcount (a9424a3d870abd6ec1f312d779aca08f) switched from state RUNNING to CANCELLING.
+2023-01-06 05:31:27,484 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (8d915481cffbce80c35c7c9f4ed2a833) switched from RUNNING to CANCELING.
+2023-01-06 05:31:27,485 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Map -> Sink: Print to Std. Out (1/1) (0c4039ef570083f5e72df70aab31e4cd) switched from RUNNING to CANCELING.
+2023-01-06 05:31:27,496 INFO  org.apache.flink.runtime.executiongraph.ExecutionGraph       [] - Source: Kafka Source -> Map (1/1) (8d915481cffbce80c35c7c9f4ed2a833) switched from CANCELING to CANCELED.

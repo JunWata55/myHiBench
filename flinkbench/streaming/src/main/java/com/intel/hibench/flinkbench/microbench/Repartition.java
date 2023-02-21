@@ -24,19 +24,22 @@ import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+
 
 import com.intel.hibench.common.streaming.metrics.KafkaReporter;
 
 public class Repartition extends StreamBase {
 
   @Override
-  public void processStream(final FlinkBenchConfig config) throws Exception {
+  public void processStream(final FlinkBenchConfig config, long interval, int method, int logic) throws Exception {
 
     final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
     env.setBufferTimeout(config.bufferTimeout);
 
     createDataStream(config);
-    DataStream<Tuple2<String, String>> dataStream = env.addSource(getDataStream());
+    // DataStream<Tuple2<String, String>> dataStream = env.addSource(getDataStream());
+    DataStream<Tuple2<String, String>> dataStream = env.fromSource(getKafkaSource(), WatermarkStrategy.noWatermarks(), "Kafka Source");
 
     dataStream.rebalance().map(
         new MapFunction<Tuple2<String, String>, Tuple2<String, String>>() {

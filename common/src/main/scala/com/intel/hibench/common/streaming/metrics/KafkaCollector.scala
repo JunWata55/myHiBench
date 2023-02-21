@@ -22,29 +22,42 @@ import java.util.Date
 import java.util.concurrent.{TimeUnit, Future, Executors}
 
 import com.codahale.metrics.{UniformReservoir, Histogram}
-import kafka.utils.{ZKStringSerializer, ZkUtils}
-import org.I0Itec.zkclient.ZkClient
+// import kafka.utils.{ZKStringSerializer, ZkUtils}
+// import org.I0Itec.zkclient.ZkClient
+
+import org.apache.kafka.common.PartitionInfo
+import org.apache.kafka.clients.consumer.KafkaConsumer
+import java.util.Properties
+import scala.collection.JavaConverters
 
 import scala.collection.mutable.ArrayBuffer
 
-
-class KafkaCollector(zkConnect: String, metricsTopic: String,
+class KafkaCollector(bsConnect: String, metricsTopic: String,
     outputDir: String, sampleNumber: Int, desiredThreadNum: Int) extends LatencyCollector {
+// class KafkaCollector(zkConnect: String, metricsTopic: String,
+//     outputDir: String, sampleNumber: Int, desiredThreadNum: Int) extends LatencyCollector {
 
   private val histogram = new Histogram(new UniformReservoir(sampleNumber))
   private val threadPool = Executors.newFixedThreadPool(desiredThreadNum)
   private val fetchResults = ArrayBuffer.empty[Future[FetchJobResult]]
 
   def start(): Unit = {
-    val partitions = getPartitions(metricsTopic, zkConnect)
+    val partitions = getPartitions(metricsTopic, bsConnect)
+    // val partitions = getPartitions(metricsTopic, zkConnect)
 
     println("Starting MetricsReader for kafka topic: " + metricsTopic)
 
     partitions.foreach(partition => {
-      val job = new FetchJob(zkConnect, metricsTopic, partition, histogram)
+      val job = new FetchJob(bsConnect, metricsTopic, partition.partition, histogram)
       val fetchFeature = threadPool.submit(job)
       fetchResults += fetchFeature
     })
+
+    // partitions.foreach(partition => {
+    //   val job = new FetchJob(zkConnect, metricsTopic, partition, histogram)
+    //   val fetchFeature = threadPool.submit(job)
+    //   fetchResults += fetchFeature
+    // })
 
     threadPool.shutdown()
     threadPool.awaitTermination(30, TimeUnit.MINUTES)
@@ -59,14 +72,27 @@ class KafkaCollector(zkConnect: String, metricsTopic: String,
     report(finalResults.minTime, finalResults.maxTime, finalResults.count)
   }
 
-  private def getPartitions(topic: String, zkConnect: String): Seq[Int] = {
-    val zkClient = new ZkClient(zkConnect, 6000, 6000, ZKStringSerializer)
+  private def getPartitions(topic: String, bsConnect: String): Seq[PartitionInfo] = {
+    val props = new Properties();
+		props.setProperty("bootstrap.servers", bsConnect)
+		props.setProperty("group.id", "metrics_reader")
+		props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
+		props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer")
+    val consumer = new KafkaConsumer(props)
     try {
-      ZkUtils.getPartitionsForTopics(zkClient, Seq(topic)).flatMap(_._2).toSeq
+      JavaConverters.asScalaIteratorConverter[PartitionInfo](consumer.partitionsFor(topic).iterator).asScala.toSeq
     } finally {
-      zkClient.close()
+      consumer.close()
     }
   }
+  // private def getPartitions(topic: String, zkConnect: String): Seq[Int] = {
+  //   val zkClient = new ZkClient(zkConnect, 6000, 6000, ZKStringSerializer)
+  //   try {
+  //     ZkUtils.getPartitionsForTopics(zkClient, Seq(topic)).flatMap(_._2).toSeq
+  //   } finally {
+  //     zkClient.close()
+  //   }
+  // }
 
 
   private def report(minTime: Long, maxTime: Long, count: Long): Unit = {

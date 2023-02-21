@@ -1,0 +1,1837 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "flinkbench-streaming",
+        "directory": "/home/junwata/HiBench/flinkbench/streaming",
+        "workspaceDir": "/home/junwata/HiBench",
+        "sources": [
+            "/home/junwata/HiBench/flinkbench/streaming/src/main/java"
+        ],
+        "dependencies": [
+            "hibench",
+            "hibench-common",
+            "flinkbench"
+        ],
+        "classpath": [
+            "/home/junwata/HiBench/target/classes",
+            "/home/junwata/HiBench/common/target/classes",
+            "/home/junwata/HiBench/flinkbench/target/classes",
+            "/home/junwata/HiBench/flinkbench/streaming/target/classes",
+            "/home/junwata/.m2/repository/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2.jar",
+            "/home/junwata/.m2/repository/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar",
+            "/home/junwata/.m2/repository/org/apache/kafka/kafka_2.11/2.4.1/kafka_2.11-2.4.1.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/module/jackson-module-scala_2.11/2.10.0/jackson-module-scala_2.11-2.10.0.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.10.0/jackson-module-paranamer-2.10.0.jar",
+            "/home/junwata/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-csv/2.10.0/jackson-dataformat-csv-2.10.0.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.0/jackson-datatype-jdk8-2.10.0.jar",
+            "/home/junwata/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+            "/home/junwata/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar",
+            "/home/junwata/.m2/repository/org/scala-lang/modules/scala-collection-compat_2.11/2.1.2/scala-collection-compat_2.11-2.1.2.jar",
+            "/home/junwata/.m2/repository/org/scala-lang/modules/scala-java8-compat_2.11/0.9.0/scala-java8-compat_2.11-0.9.0.jar",
+            "/home/junwata/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar",
+            "/home/junwata/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar",
+            "/home/junwata/.m2/repository/com/typesafe/scala-logging/scala-logging_2.11/3.9.2/scala-logging_2.11-3.9.2.jar",
+            "/home/junwata/.m2/repository/org/apache/zookeeper/zookeeper/3.5.7/zookeeper-3.5.7.jar",
+            "/home/junwata/.m2/repository/org/apache/zookeeper/zookeeper-jute/3.5.7/zookeeper-jute-3.5.7.jar",
+            "/home/junwata/.m2/repository/org/apache/yetus/audience-annotations/0.5.0/audience-annotations-0.5.0.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-handler/4.1.45.Final/netty-handler-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-common/4.1.45.Final/netty-common-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-buffer/4.1.45.Final/netty-buffer-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-transport/4.1.45.Final/netty-transport-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-resolver/4.1.45.Final/netty-resolver-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-codec/4.1.45.Final/netty-codec-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-transport-native-epoll/4.1.45.Final/netty-transport-native-epoll-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.45.Final/netty-transport-native-unix-common-4.1.45.Final.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-streaming-java/1.15.2/flink-streaming-java-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-core/1.15.2/flink-core-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-annotations/1.15.2/flink-annotations-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-metrics-core/1.15.2/flink-metrics-core-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-asm-9/9.2-15.0/flink-shaded-asm-9-9.2-15.0.jar",
+            "/home/junwata/.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar",
+            "/home/junwata/.m2/repository/com/esotericsoftware/kryo/kryo/2.24.0/kryo-2.24.0.jar",
+            "/home/junwata/.m2/repository/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar",
+            "/home/junwata/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar",
+            "/home/junwata/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar",
+            "/home/junwata/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-file-sink-common/1.15.2/flink-file-sink-common-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-runtime/1.15.2/flink-runtime-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-rpc-core/1.15.2/flink-rpc-core-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-rpc-akka-loader/1.15.2/flink-rpc-akka-loader-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-queryable-state-client-java/1.15.2/flink-queryable-state-client-java-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-hadoop-fs/1.15.2/flink-hadoop-fs-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-netty/4.1.70.Final-15.0/flink-shaded-netty-4.1.70.Final-15.0.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-jackson/2.12.4-15.0/flink-shaded-jackson-2.12.4-15.0.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-zookeeper-3/3.5.9-15.0/flink-shaded-zookeeper-3-3.5.9-15.0.jar",
+            "/home/junwata/.m2/repository/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA.jar",
+            "/home/junwata/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.3/snappy-java-1.1.8.3.jar",
+            "/home/junwata/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-java/1.15.2/flink-java-1.15.2.jar",
+            "/home/junwata/.m2/repository/com/twitter/chill-java/0.7.6/chill-java-0.7.6.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-guava/30.1.1-jre-15.0/flink-shaded-guava-30.1.1-jre-15.0.jar",
+            "/home/junwata/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar",
+            "/home/junwata/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-force-shading/15.0/flink-shaded-force-shading-15.0.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-clients/1.15.2/flink-clients-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-optimizer/1.15.2/flink-optimizer-1.15.2.jar",
+            "/home/junwata/.m2/repository/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-statebackend-rocksdb_2.11/1.13.6/flink-statebackend-rocksdb_2.11-1.13.6.jar",
+            "/home/junwata/.m2/repository/com/ververica/frocksdbjni/5.17.2-ververica-2.1/frocksdbjni-5.17.2-ververica-2.1.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/force-shading/1.13.6/force-shading-1.13.6.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-connector-kafka/1.15.2/flink-connector-kafka-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/flink/flink-connector-base/1.15.2/flink-connector-base-1.15.2.jar",
+            "/home/junwata/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar",
+            "/home/junwata/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar",
+            "/home/junwata/.m2/repository/org/apache/hadoop/hadoop-hdfs/2.10.1/hadoop-hdfs-2.10.1.jar",
+            "/home/junwata/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/2.10.1/hadoop-hdfs-client-2.10.1.jar",
+            "/home/junwata/.m2/repository/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.jar",
+            "/home/junwata/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar",
+            "/home/junwata/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar",
+            "/home/junwata/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar",
+            "/home/junwata/.m2/repository/com/sun/jersey/jersey-core/1.9/jersey-core-1.9.jar",
+            "/home/junwata/.m2/repository/com/sun/jersey/jersey-server/1.9/jersey-server-1.9.jar",
+            "/home/junwata/.m2/repository/asm/asm/3.1/asm-3.1.jar",
+            "/home/junwata/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar",
+            "/home/junwata/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar",
+            "/home/junwata/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar",
+            "/home/junwata/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar",
+            "/home/junwata/.m2/repository/commons-daemon/commons-daemon/1.0.13/commons-daemon-1.0.13.jar",
+            "/home/junwata/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar",
+            "/home/junwata/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar",
+            "/home/junwata/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar",
+            "/home/junwata/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar",
+            "/home/junwata/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar",
+            "/home/junwata/.m2/repository/xmlenc/xmlenc/0.52/xmlenc-0.52.jar",
+            "/home/junwata/.m2/repository/io/netty/netty/3.10.6.Final/netty-3.10.6.Final.jar",
+            "/home/junwata/.m2/repository/io/netty/netty-all/4.1.50.Final/netty-all-4.1.50.Final.jar",
+            "/home/junwata/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar",
+            "/home/junwata/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar",
+            "/home/junwata/.m2/repository/org/apache/htrace/htrace-core4/4.1.0-incubating/htrace-core4-4.1.0-incubating.jar",
+            "/home/junwata/.m2/repository/org/fusesource/leveldbjni/leveldbjni-all/1.8/leveldbjni-all-1.8.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.6/jackson-databind-2.9.10.6.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.10/jackson-annotations-2.9.10.jar",
+            "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar",
+            "/home/junwata/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar",
+            "/home/junwata/.m2/repository/org/slf4j/slf4j-simple/1.7.5/slf4j-simple-1.7.5.jar",
+            "/home/junwata/.m2/repository/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar",
+            "/home/junwata/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+            "/home/junwata/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+            "/home/junwata/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar",
+            "/home/junwata/.m2/repository/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1.jar",
+            "/home/junwata/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar",
+            "/home/junwata/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar"
+        ],
+        "out": "/home/junwata/HiBench/flinkbench/streaming/target",
+        "classesDir": "/home/junwata/HiBench/flinkbench/streaming/target/classes",
+        "resources": [
+            "/home/junwata/HiBench/flinkbench/streaming/src/main/resources"
+        ],
+        "scala": {
+            "organization": "org.scala-lang",
+            "name": "scala-compiler",
+            "version": "2.11.8",
+            "options": [
+                
+            ],
+            "jars": [
+                "/home/junwata/.m2/repository/org/scala-lang/scala-compiler/2.11.8/scala-compiler-2.11.8.jar",
+                "/home/junwata/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar",
+                "/home/junwata/.m2/repository/org/scala-lang/scala-reflect/2.11.8/scala-reflect-2.11.8.jar",
+                "/home/junwata/.m2/repository/org/scala-lang/modules/scala-xml_2.11/1.0.4/scala-xml_2.11-1.0.4.jar",
+                "/home/junwata/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar",
+                "/home/junwata/.m2/repository/jline/jline/2.12.1/jline-2.12.1.jar"
+            ],
+            "setup": {
+                "order": "java->scala",
+                "addLibraryToBootClasspath": true,
+                "addCompilerToClasspath": false,
+                "addExtraJarsToClasspath": false,
+                "manageBootClasspath": true,
+                "filterLibraryFromClasspath": true
+            }
+        },
+        "java": {
+            "options": [
+                "-g",
+                "-target",
+                "1.8",
+                "-source",
+                "1.8",
+                "-encoding",
+                "UTF-8"
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework",
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "utest.runner.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    {
+                        "args": [
+                            "-v",
+                            "-a"
+                        ],
+                        "framework": {
+                            "names": [
+                                "com.novocode.junit.JUnitFramework"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "/usr/lib/jvm/java-8-openjdk-amd64/jre",
+                "options": [
+                    
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-reflect",
+                    "version": "2.11.12",
+                    "artifacts": [
+                        {
+                            "name": "scala-reflect",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12.jar"
+                        },
+                        {
+                            "name": "scala-reflect",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/scala-reflect/2.11.12/scala-reflect-2.11.12-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "junit",
+                    "name": "junit",
+                    "version": "3.8.1",
+                    "artifacts": [
+                        {
+                            "name": "junit",
+                            "path": "/home/junwata/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar"
+                        },
+                        {
+                            "name": "junit",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/junit/junit/3.8.1/junit-3.8.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.kafka",
+                    "name": "kafka_2.11",
+                    "version": "2.4.1",
+                    "artifacts": [
+                        {
+                            "name": "kafka_2.11",
+                            "path": "/home/junwata/.m2/repository/org/apache/kafka/kafka_2.11/2.4.1/kafka_2.11-2.4.1.jar"
+                        },
+                        {
+                            "name": "kafka_2.11",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/kafka/kafka_2.11/2.4.1/kafka_2.11-2.4.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.guava",
+                    "name": "listenablefuture",
+                    "version": "9999.0-empty-to-avoid-conflict-with-guava",
+                    "artifacts": [
+                        {
+                            "name": "listenablefuture",
+                            "path": "/home/junwata/.m2/repository/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.squareup.okio",
+                    "name": "okio",
+                    "version": "1.6.0",
+                    "artifacts": [
+                        {
+                            "name": "okio",
+                            "path": "/home/junwata/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0.jar"
+                        },
+                        {
+                            "name": "okio",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/squareup/okio/okio/1.6.0/okio-1.6.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.slf4j",
+                    "name": "slf4j-api",
+                    "version": "1.7.5",
+                    "artifacts": [
+                        {
+                            "name": "slf4j-api",
+                            "path": "/home/junwata/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar"
+                        },
+                        {
+                            "name": "slf4j-api",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-shaded-jackson",
+                    "version": "2.12.4-15.0",
+                    "artifacts": [
+                        {
+                            "name": "flink-shaded-jackson",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-jackson/2.12.4-15.0/flink-shaded-jackson-2.12.4-15.0.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-epoll",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-epoll",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-transport-native-epoll/4.1.45.Final/netty-transport-native-epoll-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-native-epoll",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-transport-native-epoll/4.1.45.Final/netty-transport-native-epoll-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-core",
+                    "version": "2.9.10",
+                    "artifacts": [
+                        {
+                            "name": "jackson-core",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10.jar"
+                        },
+                        {
+                            "name": "jackson-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.10/jackson-core-2.9.10-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.zookeeper",
+                    "name": "zookeeper",
+                    "version": "3.5.7",
+                    "artifacts": [
+                        {
+                            "name": "zookeeper",
+                            "path": "/home/junwata/.m2/repository/org/apache/zookeeper/zookeeper/3.5.7/zookeeper-3.5.7.jar"
+                        },
+                        {
+                            "name": "zookeeper",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/zookeeper/zookeeper/3.5.7/zookeeper-3.5.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-optimizer",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-optimizer",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-optimizer/1.15.2/flink-optimizer-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-optimizer",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-optimizer/1.15.2/flink-optimizer-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-resolver",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-resolver",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-resolver/4.1.45.Final/netty-resolver-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-resolver",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-resolver/4.1.45.Final/netty-resolver-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "asm",
+                    "name": "asm",
+                    "version": "3.1",
+                    "artifacts": [
+                        {
+                            "name": "asm",
+                            "path": "/home/junwata/.m2/repository/asm/asm/3.1/asm-3.1.jar"
+                        },
+                        {
+                            "name": "asm",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/asm/asm/3.1/asm-3.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-buffer",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-buffer",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-buffer/4.1.45.Final/netty-buffer-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-buffer",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-buffer/4.1.45.Final/netty-buffer-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.javassist",
+                    "name": "javassist",
+                    "version": "3.24.0-GA",
+                    "artifacts": [
+                        {
+                            "name": "javassist",
+                            "path": "/home/junwata/.m2/repository/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA.jar"
+                        },
+                        {
+                            "name": "javassist",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "xml-apis",
+                    "name": "xml-apis",
+                    "version": "1.4.01",
+                    "artifacts": [
+                        {
+                            "name": "xml-apis",
+                            "path": "/home/junwata/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar"
+                        },
+                        {
+                            "name": "xml-apis",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-annotations",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-annotations",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-annotations/1.15.2/flink-annotations-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-annotations",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-annotations/1.15.2/flink-annotations-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-codec",
+                    "name": "commons-codec",
+                    "version": "1.4",
+                    "artifacts": [
+                        {
+                            "name": "commons-codec",
+                            "path": "/home/junwata/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar"
+                        },
+                        {
+                            "name": "commons-codec",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.yammer.metrics",
+                    "name": "metrics-core",
+                    "version": "2.2.0",
+                    "artifacts": [
+                        {
+                            "name": "metrics-core",
+                            "path": "/home/junwata/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0.jar"
+                        },
+                        {
+                            "name": "metrics-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/yammer/metrics/metrics-core/2.2.0/metrics-core-2.2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "xerces",
+                    "name": "xercesImpl",
+                    "version": "2.12.0",
+                    "artifacts": [
+                        {
+                            "name": "xercesImpl",
+                            "path": "/home/junwata/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar"
+                        },
+                        {
+                            "name": "xercesImpl",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.commons",
+                    "name": "commons-math3",
+                    "version": "3.6.1",
+                    "artifacts": [
+                        {
+                            "name": "commons-math3",
+                            "path": "/home/junwata/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1.jar"
+                        },
+                        {
+                            "name": "commons-math3",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/commons/commons-math3/3.6.1/commons-math3-3.6.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.j2objc",
+                    "name": "j2objc-annotations",
+                    "version": "1.3",
+                    "artifacts": [
+                        {
+                            "name": "j2objc-annotations",
+                            "path": "/home/junwata/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3.jar"
+                        },
+                        {
+                            "name": "j2objc-annotations",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.hadoop",
+                    "name": "hadoop-hdfs",
+                    "version": "2.10.1",
+                    "artifacts": [
+                        {
+                            "name": "hadoop-hdfs",
+                            "path": "/home/junwata/.m2/repository/org/apache/hadoop/hadoop-hdfs/2.10.1/hadoop-hdfs-2.10.1.jar"
+                        },
+                        {
+                            "name": "hadoop-hdfs",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/hadoop/hadoop-hdfs/2.10.1/hadoop-hdfs-2.10.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "log4j",
+                    "name": "log4j",
+                    "version": "1.2.17",
+                    "artifacts": [
+                        {
+                            "name": "log4j",
+                            "path": "/home/junwata/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar"
+                        },
+                        {
+                            "name": "log4j",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-transport/4.1.45.Final/netty-transport-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-transport/4.1.45.Final/netty-transport-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-statebackend-rocksdb_2.11",
+                    "version": "1.13.6",
+                    "artifacts": [
+                        {
+                            "name": "flink-statebackend-rocksdb_2.11",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-statebackend-rocksdb_2.11/1.13.6/flink-statebackend-rocksdb_2.11-1.13.6.jar"
+                        },
+                        {
+                            "name": "flink-statebackend-rocksdb_2.11",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-statebackend-rocksdb_2.11/1.13.6/flink-statebackend-rocksdb_2.11-1.13.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.codahale.metrics",
+                    "name": "metrics-jvm",
+                    "version": "3.0.2",
+                    "artifacts": [
+                        {
+                            "name": "metrics-jvm",
+                            "path": "/home/junwata/.m2/repository/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2.jar"
+                        },
+                        {
+                            "name": "metrics-jvm",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/codahale/metrics/metrics-jvm/3.0.2/metrics-jvm-3.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.mortbay.jetty",
+                    "name": "jetty-util",
+                    "version": "6.1.26",
+                    "artifacts": [
+                        {
+                            "name": "jetty-util",
+                            "path": "/home/junwata/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar"
+                        },
+                        {
+                            "name": "jetty-util",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-shaded-force-shading",
+                    "version": "15.0",
+                    "artifacts": [
+                        {
+                            "name": "flink-shaded-force-shading",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-force-shading/15.0/flink-shaded-force-shading-15.0.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.kafka",
+                    "name": "kafka-clients",
+                    "version": "2.8.1",
+                    "artifacts": [
+                        {
+                            "name": "kafka-clients",
+                            "path": "/home/junwata/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1.jar"
+                        },
+                        {
+                            "name": "kafka-clients",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/kafka/kafka-clients/2.8.1/kafka-clients-2.8.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.yetus",
+                    "name": "audience-annotations",
+                    "version": "0.5.0",
+                    "artifacts": [
+                        {
+                            "name": "audience-annotations",
+                            "path": "/home/junwata/.m2/repository/org/apache/yetus/audience-annotations/0.5.0/audience-annotations-0.5.0.jar"
+                        },
+                        {
+                            "name": "audience-annotations",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/yetus/audience-annotations/0.5.0/audience-annotations-0.5.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-file-sink-common",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-file-sink-common",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-file-sink-common/1.15.2/flink-file-sink-common-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-file-sink-common",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-file-sink-common/1.15.2/flink-file-sink-common-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.protobuf",
+                    "name": "protobuf-java",
+                    "version": "2.5.0",
+                    "artifacts": [
+                        {
+                            "name": "protobuf-java",
+                            "path": "/home/junwata/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar"
+                        },
+                        {
+                            "name": "protobuf-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.guava",
+                    "name": "failureaccess",
+                    "version": "1.0.1",
+                    "artifacts": [
+                        {
+                            "name": "failureaccess",
+                            "path": "/home/junwata/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+                        },
+                        {
+                            "name": "failureaccess",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-common",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-common",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-common/4.1.45.Final/netty-common-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-common",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-common/4.1.45.Final/netty-common-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-connector-kafka",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-connector-kafka",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-connector-kafka/1.15.2/flink-connector-kafka-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-connector-kafka",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-connector-kafka/1.15.2/flink-connector-kafka-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "force-shading",
+                    "version": "1.13.6",
+                    "artifacts": [
+                        {
+                            "name": "force-shading",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/force-shading/1.13.6/force-shading-1.13.6.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.esotericsoftware.kryo",
+                    "name": "kryo",
+                    "version": "2.24.0",
+                    "artifacts": [
+                        {
+                            "name": "kryo",
+                            "path": "/home/junwata/.m2/repository/com/esotericsoftware/kryo/kryo/2.24.0/kryo-2.24.0.jar"
+                        },
+                        {
+                            "name": "kryo",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/esotericsoftware/kryo/kryo/2.24.0/kryo-2.24.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.sun.jersey",
+                    "name": "jersey-core",
+                    "version": "1.9",
+                    "artifacts": [
+                        {
+                            "name": "jersey-core",
+                            "path": "/home/junwata/.m2/repository/com/sun/jersey/jersey-core/1.9/jersey-core-1.9.jar"
+                        },
+                        {
+                            "name": "jersey-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/sun/jersey/jersey-core/1.9/jersey-core-1.9-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-core",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-core",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-core/1.15.2/flink-core-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-core/1.15.2/flink-core-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-metrics-core",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-metrics-core",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-metrics-core/1.15.2/flink-metrics-core-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-metrics-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-metrics-core/1.15.2/flink-metrics-core-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "javax.servlet",
+                    "name": "servlet-api",
+                    "version": "2.5",
+                    "artifacts": [
+                        {
+                            "name": "servlet-api",
+                            "path": "/home/junwata/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar"
+                        },
+                        {
+                            "name": "servlet-api",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.zookeeper",
+                    "name": "zookeeper-jute",
+                    "version": "3.5.7",
+                    "artifacts": [
+                        {
+                            "name": "zookeeper-jute",
+                            "path": "/home/junwata/.m2/repository/org/apache/zookeeper/zookeeper-jute/3.5.7/zookeeper-jute-3.5.7.jar"
+                        },
+                        {
+                            "name": "zookeeper-jute",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/zookeeper/zookeeper-jute/3.5.7/zookeeper-jute-3.5.7-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.dataformat",
+                    "name": "jackson-dataformat-csv",
+                    "version": "2.10.0",
+                    "artifacts": [
+                        {
+                            "name": "jackson-dataformat-csv",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-csv/2.10.0/jackson-dataformat-csv-2.10.0.jar"
+                        },
+                        {
+                            "name": "jackson-dataformat-csv",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-csv/2.10.0/jackson-dataformat-csv-2.10.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.codehaus.jackson",
+                    "name": "jackson-mapper-asl",
+                    "version": "1.9.13",
+                    "artifacts": [
+                        {
+                            "name": "jackson-mapper-asl",
+                            "path": "/home/junwata/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13.jar"
+                        },
+                        {
+                            "name": "jackson-mapper-asl",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/jackson-mapper-asl-1.9.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-all",
+                    "version": "4.1.50.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-all",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-all/4.1.50.Final/netty-all-4.1.50.Final.jar"
+                        },
+                        {
+                            "name": "netty-all",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-all/4.1.50.Final/netty-all-4.1.50.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-codec",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-codec",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-codec/4.1.45.Final/netty-codec-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-codec",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-codec/4.1.45.Final/netty-codec-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-rpc-akka-loader",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-rpc-akka-loader",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-rpc-akka-loader/1.15.2/flink-rpc-akka-loader-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-rpc-akka-loader",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-rpc-akka-loader/1.15.2/flink-rpc-akka-loader-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.module",
+                    "name": "jackson-module-scala_2.11",
+                    "version": "2.10.0",
+                    "artifacts": [
+                        {
+                            "name": "jackson-module-scala_2.11",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/module/jackson-module-scala_2.11/2.10.0/jackson-module-scala_2.11-2.10.0.jar"
+                        },
+                        {
+                            "name": "jackson-module-scala_2.11",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/module/jackson-module-scala_2.11/2.10.0/jackson-module-scala_2.11-2.10.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-logging",
+                    "name": "commons-logging",
+                    "version": "1.1.3",
+                    "artifacts": [
+                        {
+                            "name": "commons-logging",
+                            "path": "/home/junwata/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar"
+                        },
+                        {
+                            "name": "commons-logging",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.module",
+                    "name": "jackson-module-paranamer",
+                    "version": "2.10.0",
+                    "artifacts": [
+                        {
+                            "name": "jackson-module-paranamer",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.10.0/jackson-module-paranamer-2.10.0.jar"
+                        },
+                        {
+                            "name": "jackson-module-paranamer",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/module/jackson-module-paranamer/2.10.0/jackson-module-paranamer-2.10.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.code.findbugs",
+                    "name": "jsr305",
+                    "version": "1.3.9",
+                    "artifacts": [
+                        {
+                            "name": "jsr305",
+                            "path": "/home/junwata/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-clients",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-clients",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-clients/1.15.2/flink-clients-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-clients",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-clients/1.15.2/flink-clients-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.lz4",
+                    "name": "lz4-java",
+                    "version": "1.8.0",
+                    "artifacts": [
+                        {
+                            "name": "lz4-java",
+                            "path": "/home/junwata/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar"
+                        },
+                        {
+                            "name": "lz4-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang",
+                    "name": "scala-library",
+                    "version": "2.11.8",
+                    "artifacts": [
+                        {
+                            "name": "scala-library",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar"
+                        },
+                        {
+                            "name": "scala-library",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.htrace",
+                    "name": "htrace-core4",
+                    "version": "4.1.0-incubating",
+                    "artifacts": [
+                        {
+                            "name": "htrace-core4",
+                            "path": "/home/junwata/.m2/repository/org/apache/htrace/htrace-core4/4.1.0-incubating/htrace-core4-4.1.0-incubating.jar"
+                        },
+                        {
+                            "name": "htrace-core4",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/htrace/htrace-core4/4.1.0-incubating/htrace-core4-4.1.0-incubating-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.ververica",
+                    "name": "frocksdbjni",
+                    "version": "5.17.2-ververica-2.1",
+                    "artifacts": [
+                        {
+                            "name": "frocksdbjni",
+                            "path": "/home/junwata/.m2/repository/com/ververica/frocksdbjni/5.17.2-ververica-2.1/frocksdbjni-5.17.2-ververica-2.1.jar"
+                        },
+                        {
+                            "name": "frocksdbjni",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/ververica/frocksdbjni/5.17.2-ververica-2.1/frocksdbjni-5.17.2-ververica-2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.twitter",
+                    "name": "chill-java",
+                    "version": "0.7.6",
+                    "artifacts": [
+                        {
+                            "name": "chill-java",
+                            "path": "/home/junwata/.m2/repository/com/twitter/chill-java/0.7.6/chill-java-0.7.6.jar"
+                        },
+                        {
+                            "name": "chill-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/twitter/chill-java/0.7.6/chill-java-0.7.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "xmlenc",
+                    "name": "xmlenc",
+                    "version": "0.52",
+                    "artifacts": [
+                        {
+                            "name": "xmlenc",
+                            "path": "/home/junwata/.m2/repository/xmlenc/xmlenc/0.52/xmlenc-0.52.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-java",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-java",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-java/1.15.2/flink-java-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-java/1.15.2/flink-java-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.datatype",
+                    "name": "jackson-datatype-jdk8",
+                    "version": "2.10.0",
+                    "artifacts": [
+                        {
+                            "name": "jackson-datatype-jdk8",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.0/jackson-datatype-jdk8-2.10.0.jar"
+                        },
+                        {
+                            "name": "jackson-datatype-jdk8",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.10.0/jackson-datatype-jdk8-2.10.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-annotations",
+                    "version": "2.9.10",
+                    "artifacts": [
+                        {
+                            "name": "jackson-annotations",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.10/jackson-annotations-2.9.10.jar"
+                        },
+                        {
+                            "name": "jackson-annotations",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.10/jackson-annotations-2.9.10-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-java8-compat_2.11",
+                    "version": "0.9.0",
+                    "artifacts": [
+                        {
+                            "name": "scala-java8-compat_2.11",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/modules/scala-java8-compat_2.11/0.9.0/scala-java8-compat_2.11-0.9.0.jar"
+                        },
+                        {
+                            "name": "scala-java8-compat_2.11",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/modules/scala-java8-compat_2.11/0.9.0/scala-java8-compat_2.11-0.9.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-transport-native-unix-common",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-transport-native-unix-common",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.45.Final/netty-transport-native-unix-common-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-transport-native-unix-common",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.45.Final/netty-transport-native-unix-common-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.hadoop",
+                    "name": "hadoop-hdfs-client",
+                    "version": "2.10.1",
+                    "artifacts": [
+                        {
+                            "name": "hadoop-hdfs-client",
+                            "path": "/home/junwata/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/2.10.1/hadoop-hdfs-client-2.10.1.jar"
+                        },
+                        {
+                            "name": "hadoop-hdfs-client",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/hadoop/hadoop-hdfs-client/2.10.1/hadoop-hdfs-client-2.10.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-queryable-state-client-java",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-queryable-state-client-java",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-queryable-state-client-java/1.15.2/flink-queryable-state-client-java-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-queryable-state-client-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-queryable-state-client-java/1.15.2/flink-queryable-state-client-java-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.codehaus.jackson",
+                    "name": "jackson-core-asl",
+                    "version": "1.9.13",
+                    "artifacts": [
+                        {
+                            "name": "jackson-core-asl",
+                            "path": "/home/junwata/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13.jar"
+                        },
+                        {
+                            "name": "jackson-core-asl",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/codehaus/jackson/jackson-core-asl/1.9.13/jackson-core-asl-1.9.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.github.luben",
+                    "name": "zstd-jni",
+                    "version": "1.4.9-1",
+                    "artifacts": [
+                        {
+                            "name": "zstd-jni",
+                            "path": "/home/junwata/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1.jar"
+                        },
+                        {
+                            "name": "zstd-jni",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/github/luben/zstd-jni/1.4.9-1/zstd-jni-1.4.9-1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.fasterxml.jackson.core",
+                    "name": "jackson-databind",
+                    "version": "2.9.10.6",
+                    "artifacts": [
+                        {
+                            "name": "jackson-databind",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.6/jackson-databind-2.9.10.6.jar"
+                        },
+                        {
+                            "name": "jackson-databind",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.10.6/jackson-databind-2.9.10.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.slf4j",
+                    "name": "slf4j-simple",
+                    "version": "1.7.5",
+                    "artifacts": [
+                        {
+                            "name": "slf4j-simple",
+                            "path": "/home/junwata/.m2/repository/org/slf4j/slf4j-simple/1.7.5/slf4j-simple-1.7.5.jar"
+                        },
+                        {
+                            "name": "slf4j-simple",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/slf4j/slf4j-simple/1.7.5/slf4j-simple-1.7.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.typesafe.scala-logging",
+                    "name": "scala-logging_2.11",
+                    "version": "3.9.2",
+                    "artifacts": [
+                        {
+                            "name": "scala-logging_2.11",
+                            "path": "/home/junwata/.m2/repository/com/typesafe/scala-logging/scala-logging_2.11/3.9.2/scala-logging_2.11-3.9.2.jar"
+                        },
+                        {
+                            "name": "scala-logging_2.11",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/typesafe/scala-logging/scala-logging_2.11/3.9.2/scala-logging_2.11-3.9.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty",
+                    "version": "3.10.6.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty/3.10.6.Final/netty-3.10.6.Final.jar"
+                        },
+                        {
+                            "name": "netty",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty/3.10.6.Final/netty-3.10.6.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-shaded-guava",
+                    "version": "30.1.1-jre-15.0",
+                    "artifacts": [
+                        {
+                            "name": "flink-shaded-guava",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-guava/30.1.1-jre-15.0/flink-shaded-guava-30.1.1-jre-15.0.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-shaded-netty",
+                    "version": "4.1.70.Final-15.0",
+                    "artifacts": [
+                        {
+                            "name": "flink-shaded-netty",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-netty/4.1.70.Final-15.0/flink-shaded-netty-4.1.70.Final-15.0.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.squareup.okhttp",
+                    "name": "okhttp",
+                    "version": "2.7.5",
+                    "artifacts": [
+                        {
+                            "name": "okhttp",
+                            "path": "/home/junwata/.m2/repository/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5.jar"
+                        },
+                        {
+                            "name": "okhttp",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/squareup/okhttp/okhttp/2.7.5/okhttp-2.7.5-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "net.sf.jopt-simple",
+                    "name": "jopt-simple",
+                    "version": "5.0.4",
+                    "artifacts": [
+                        {
+                            "name": "jopt-simple",
+                            "path": "/home/junwata/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+                        },
+                        {
+                            "name": "jopt-simple",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.fusesource.leveldbjni",
+                    "name": "leveldbjni-all",
+                    "version": "1.8",
+                    "artifacts": [
+                        {
+                            "name": "leveldbjni-all",
+                            "path": "/home/junwata/.m2/repository/org/fusesource/leveldbjni/leveldbjni-all/1.8/leveldbjni-all-1.8.jar"
+                        },
+                        {
+                            "name": "leveldbjni-all",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/fusesource/leveldbjni/leveldbjni-all/1.8/leveldbjni-all-1.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.checkerframework",
+                    "name": "checker-qual",
+                    "version": "3.12.0",
+                    "artifacts": [
+                        {
+                            "name": "checker-qual",
+                            "path": "/home/junwata/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0.jar"
+                        },
+                        {
+                            "name": "checker-qual",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/checkerframework/checker-qual/3.12.0/checker-qual-3.12.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-daemon",
+                    "name": "commons-daemon",
+                    "version": "1.0.13",
+                    "artifacts": [
+                        {
+                            "name": "commons-daemon",
+                            "path": "/home/junwata/.m2/repository/commons-daemon/commons-daemon/1.0.13/commons-daemon-1.0.13.jar"
+                        },
+                        {
+                            "name": "commons-daemon",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-daemon/commons-daemon/1.0.13/commons-daemon-1.0.13-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.xerial.snappy",
+                    "name": "snappy-java",
+                    "version": "1.1.8.3",
+                    "artifacts": [
+                        {
+                            "name": "snappy-java",
+                            "path": "/home/junwata/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.3/snappy-java-1.1.8.3.jar"
+                        },
+                        {
+                            "name": "snappy-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/xerial/snappy/snappy-java/1.1.8.3/snappy-java-1.1.8.3-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.objenesis",
+                    "name": "objenesis",
+                    "version": "2.1",
+                    "artifacts": [
+                        {
+                            "name": "objenesis",
+                            "path": "/home/junwata/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1.jar"
+                        },
+                        {
+                            "name": "objenesis",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/objenesis/objenesis/2.1/objenesis-2.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.guava",
+                    "name": "guava",
+                    "version": "31.0.1-jre",
+                    "artifacts": [
+                        {
+                            "name": "guava",
+                            "path": "/home/junwata/.m2/repository/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre.jar"
+                        },
+                        {
+                            "name": "guava",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/google/guava/guava/31.0.1-jre/guava-31.0.1-jre-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.mortbay.jetty",
+                    "name": "jetty",
+                    "version": "6.1.26",
+                    "artifacts": [
+                        {
+                            "name": "jetty",
+                            "path": "/home/junwata/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar"
+                        },
+                        {
+                            "name": "jetty",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-io",
+                    "name": "commons-io",
+                    "version": "2.4",
+                    "artifacts": [
+                        {
+                            "name": "commons-io",
+                            "path": "/home/junwata/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar"
+                        },
+                        {
+                            "name": "commons-io",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-shaded-asm-9",
+                    "version": "9.2-15.0",
+                    "artifacts": [
+                        {
+                            "name": "flink-shaded-asm-9",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-asm-9/9.2-15.0/flink-shaded-asm-9-9.2-15.0.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-lang",
+                    "name": "commons-lang",
+                    "version": "2.6",
+                    "artifacts": [
+                        {
+                            "name": "commons-lang",
+                            "path": "/home/junwata/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar"
+                        },
+                        {
+                            "name": "commons-lang",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.codahale.metrics",
+                    "name": "metrics-core",
+                    "version": "3.0.2",
+                    "artifacts": [
+                        {
+                            "name": "metrics-core",
+                            "path": "/home/junwata/.m2/repository/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2.jar"
+                        },
+                        {
+                            "name": "metrics-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/codahale/metrics/metrics-core/3.0.2/metrics-core-3.0.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-cli",
+                    "name": "commons-cli",
+                    "version": "1.5.0",
+                    "artifacts": [
+                        {
+                            "name": "commons-cli",
+                            "path": "/home/junwata/.m2/repository/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0.jar"
+                        },
+                        {
+                            "name": "commons-cli",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-cli/commons-cli/1.5.0/commons-cli-1.5.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-runtime",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-runtime",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-runtime/1.15.2/flink-runtime-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-runtime",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-runtime/1.15.2/flink-runtime-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.thoughtworks.paranamer",
+                    "name": "paranamer",
+                    "version": "2.8",
+                    "artifacts": [
+                        {
+                            "name": "paranamer",
+                            "path": "/home/junwata/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.jar"
+                        },
+                        {
+                            "name": "paranamer",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.google.errorprone",
+                    "name": "error_prone_annotations",
+                    "version": "2.7.1",
+                    "artifacts": [
+                        {
+                            "name": "error_prone_annotations",
+                            "path": "/home/junwata/.m2/repository/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1.jar"
+                        },
+                        {
+                            "name": "error_prone_annotations",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.commons",
+                    "name": "commons-compress",
+                    "version": "1.21",
+                    "artifacts": [
+                        {
+                            "name": "commons-compress",
+                            "path": "/home/junwata/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21.jar"
+                        },
+                        {
+                            "name": "commons-compress",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/commons/commons-compress/1.21/commons-compress-1.21-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-shaded-zookeeper-3",
+                    "version": "3.5.9-15.0",
+                    "artifacts": [
+                        {
+                            "name": "flink-shaded-zookeeper-3",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-shaded-zookeeper-3/3.5.9-15.0/flink-shaded-zookeeper-3-3.5.9-15.0.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-connector-base",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-connector-base",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-connector-base/1.15.2/flink-connector-base-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-connector-base",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-connector-base/1.15.2/flink-connector-base-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-lang.modules",
+                    "name": "scala-collection-compat_2.11",
+                    "version": "2.1.2",
+                    "artifacts": [
+                        {
+                            "name": "scala-collection-compat_2.11",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/modules/scala-collection-compat_2.11/2.1.2/scala-collection-compat_2.11-2.1.2.jar"
+                        },
+                        {
+                            "name": "scala-collection-compat_2.11",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/scala-lang/modules/scala-collection-compat_2.11/2.1.2/scala-collection-compat_2.11-2.1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.commons",
+                    "name": "commons-lang3",
+                    "version": "3.3.2",
+                    "artifacts": [
+                        {
+                            "name": "commons-lang3",
+                            "path": "/home/junwata/.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar"
+                        },
+                        {
+                            "name": "commons-lang3",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.netty",
+                    "name": "netty-handler",
+                    "version": "4.1.45.Final",
+                    "artifacts": [
+                        {
+                            "name": "netty-handler",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-handler/4.1.45.Final/netty-handler-4.1.45.Final.jar"
+                        },
+                        {
+                            "name": "netty-handler",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/io/netty/netty-handler/4.1.45.Final/netty-handler-4.1.45.Final-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.esotericsoftware.minlog",
+                    "name": "minlog",
+                    "version": "1.2",
+                    "artifacts": [
+                        {
+                            "name": "minlog",
+                            "path": "/home/junwata/.m2/repository/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar"
+                        },
+                        {
+                            "name": "minlog",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-rpc-core",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-rpc-core",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-rpc-core/1.15.2/flink-rpc-core-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-rpc-core",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-rpc-core/1.15.2/flink-rpc-core-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.sun.jersey",
+                    "name": "jersey-server",
+                    "version": "1.9",
+                    "artifacts": [
+                        {
+                            "name": "jersey-server",
+                            "path": "/home/junwata/.m2/repository/com/sun/jersey/jersey-server/1.9/jersey-server-1.9.jar"
+                        },
+                        {
+                            "name": "jersey-server",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/com/sun/jersey/jersey-server/1.9/jersey-server-1.9-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-streaming-java",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-streaming-java",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-streaming-java/1.15.2/flink-streaming-java-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-streaming-java",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-streaming-java/1.15.2/flink-streaming-java-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.apache.flink",
+                    "name": "flink-hadoop-fs",
+                    "version": "1.15.2",
+                    "artifacts": [
+                        {
+                            "name": "flink-hadoop-fs",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-hadoop-fs/1.15.2/flink-hadoop-fs-1.15.2.jar"
+                        },
+                        {
+                            "name": "flink-hadoop-fs",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/org/apache/flink/flink-hadoop-fs/1.15.2/flink-hadoop-fs-1.15.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "commons-collections",
+                    "name": "commons-collections",
+                    "version": "3.2.2",
+                    "artifacts": [
+                        {
+                            "name": "commons-collections",
+                            "path": "/home/junwata/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"
+                        },
+                        {
+                            "name": "commons-collections",
+                            "classifier": "sources",
+                            "path": "/home/junwata/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2-sources.jar"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}

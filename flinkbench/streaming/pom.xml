@@ -51,7 +51,30 @@
       <artifactId>hibench-common</artifactId>
       <version>${project.version}</version>
     </dependency>
+
     <dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-streaming-java</artifactId>
+			<version>${flinkVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+
+    <dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-clients</artifactId>
+			<version>${flinkVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
+      <version>1.13.6</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <!-- <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-core</artifactId>
       <version>${flinkVersion}</version>
@@ -66,8 +89,9 @@
               <artifactId>slf4j-log4j12</artifactId>
           </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
+    </dependency> -->
+
+    <!-- <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-connector-kafka-0.8_${scala.binary.version}</artifactId>
       <version>${flinkVersion}</version>
@@ -82,22 +106,30 @@
           <artifactId>slf4j-log4j12</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency> -->
+
     <dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-connector-kafka</artifactId>
+			<version>${flinkVersion}</version>
+		</dependency>
+
+    <!-- <dependency>
       <groupId>org.apache.flink</groupId>
       <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>
       <version>${flinkVersion}</version>
-      <scope>compile</scope> <exclusions>
-      <exclusion>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-      </exclusion>
-    </exclusions>
-    </dependency>
+      <scope>compile</scope> 
+      <exclusions>
+        <exclusion>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency> -->
   </dependencies>
 
   <build>
