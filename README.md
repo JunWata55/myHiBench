@@ -1,6 +1,9 @@
 # HiBench Suite
 ## The bigdata micro benchmark suite ##
 
+```cpp:main.cpp
+#include <stdio>
+```
 
 * Current version: 7.1.1
 * Homepage: https://github.com/intel-hadoop/HiBench
